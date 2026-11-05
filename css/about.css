@@ -1,0 +1,735 @@
+/* ============================================
+   STACKLY — About Us Page Styles
+   ============================================ */
+
+/* ============================================
+   1. ABOUT HERO
+   ============================================ */
+.about-hero {
+  padding: 140px 0 60px;
+  background-color: var(--bg-dark);
+}
+
+.about-hero-header {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 50px;
+  align-items: flex-start;
+  margin-bottom: 45px;
+}
+
+.about-hero-title {
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+}
+
+.about-hero-title .highlight-blue {
+  color: var(--primary);
+  display: block;
+}
+
+.about-hero-desc {
+  font-size: 1.05rem;
+  color: #cbd5e1;
+  line-height: 1.7;
+  padding-top: 8px;
+}
+
+.about-hero-banner {
+  width: 100%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.about-hero-banner img {
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.about-hero-banner:hover img {
+  transform: scale(1.02);
+}
+
+/* ============================================
+   2. OUR BUSINESSES SINCE 2005 & STATS
+   ============================================ */
+.about-businesses {
+  padding: 90px 0 0;
+  background-color: var(--bg-dark);
+}
+
+.about-businesses-header {
+  text-align: center;
+  max-width: 960px;
+  margin: 0 auto 60px;
+}
+
+.about-businesses-title {
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 22px;
+  letter-spacing: -0.02em;
+}
+
+.about-businesses-text {
+  font-size: 0.98rem;
+  color: #94a3b8;
+  line-height: 1.8;
+}
+
+.about-stats-panel {
+  background: #222224;
+  border-radius: var(--radius-sm);
+  padding: 55px 30px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.about-stat-item {
+  padding: 0 15px;
+}
+
+.about-stat-number {
+  font-size: 3.8rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+.about-stat-label {
+  font-size: 1.05rem;
+  color: #cbd5e1;
+  font-weight: 400;
+}
+
+/* ============================================
+   3. MODERN & CREATIVE DESIGN PROCESS
+   ============================================ */
+.about-process {
+  padding: 120px 0 90px;
+  background-color: var(--bg-dark);
+}
+
+.about-process-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.process-visual-wrapper {
+  position: relative;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.process-accent-card {
+  position: absolute;
+  top: 30px;
+  left: -30px;
+  width: 90%;
+  height: 90%;
+  background: #e0f2fe;
+  border-radius: 4px;
+  z-index: 1;
+}
+
+.process-image-card {
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.process-image-card img {
+  width: 100%;
+  display: block;
+}
+
+.about-process-content {
+  padding-left: 20px;
+}
+
+.process-pill {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 14px;
+  display: inline-block;
+}
+
+.process-title {
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #ffffff;
+  margin-bottom: 22px;
+  letter-spacing: -0.02em;
+}
+
+.process-desc {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  line-height: 1.75;
+  margin-bottom: 34px;
+  max-width: 490px;
+}
+
+.process-actions {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.btn-process-start {
+  display: inline-block;
+  background: #1d4ed8;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 13px 30px;
+  border-radius: 4px;
+  transition: var(--transition);
+}
+
+.btn-process-start:hover {
+  background: #1e40af;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(29, 78, 216, 0.4);
+}
+
+.watch-video-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: var(--transition);
+}
+
+.watch-video-btn:hover {
+  color: var(--primary-light);
+}
+
+.watch-video-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  transition: var(--transition);
+}
+
+.watch-video-btn:hover .watch-video-icon {
+  border-color: var(--primary-light);
+  background: rgba(37, 99, 235, 0.2);
+  transform: scale(1.1);
+}
+
+/* ============================================
+   4. OUR MISSION & OUR VISION
+   ============================================ */
+.about-mission-vision {
+  padding: 40px 0 100px;
+  background-color: var(--bg-dark);
+}
+
+.mission-row,
+.vision-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.mission-row {
+  margin-bottom: 80px;
+}
+
+.mv-content h2 {
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+
+.mv-content p {
+  font-size: 1.15rem;
+  color: #ffffff;
+  line-height: 1.7;
+  font-weight: 500;
+  max-width: 480px;
+}
+
+.mv-image-wrapper {
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.mv-image-wrapper img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.mv-image-wrapper:hover img {
+  transform: scale(1.03);
+}
+
+/* ============================================
+   5. WE ARE PROVIDING BEST BUSINESS SERVICE / TRUSTED
+   ============================================ */
+.about-services-trust {
+  padding: 80px 0 100px;
+  background-color: var(--bg-dark);
+}
+
+.trust-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 65px;
+}
+
+.trust-title {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+.trust-subtitle {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  line-height: 1.6;
+}
+
+.trust-split-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.trust-video-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.trust-video-card img {
+  width: 100%;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.trust-video-card:hover img {
+  transform: scale(1.03);
+}
+
+.trust-content h3 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 18px;
+  letter-spacing: -0.02em;
+}
+
+.trust-content-desc {
+  font-size: 0.92rem;
+  color: #94a3b8;
+  line-height: 1.65;
+  margin-bottom: 32px;
+  max-width: 480px;
+}
+
+.trust-features {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.trust-feature-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.trust-feature-icon {
+  color: #f59e0b;
+  font-size: 1.45rem;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.trust-feature-text h5 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.trust-feature-text p {
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+/* ============================================
+   6. MEET OUR LEADERSHIP TEAM
+   ============================================ */
+.about-team {
+  padding: 90px 0 100px;
+  background-color: var(--bg-dark);
+}
+
+.team-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 55px;
+}
+
+.team-title {
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+.team-subtitle {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  line-height: 1.65;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  margin-bottom: 45px;
+}
+
+.team-card {
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-6px);
+}
+
+.team-photo {
+  border-radius: 12px;
+  overflow: hidden;
+  height: 330px;
+  background: #1e1e24;
+  margin-bottom: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.team-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.team-card:hover .team-photo img {
+  transform: scale(1.05);
+}
+
+.team-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.team-role {
+  font-size: 0.88rem;
+  font-style: italic;
+  color: #94a3b8;
+}
+
+.team-action-wrapper {
+  text-align: center;
+}
+
+.btn-team-meet {
+  display: inline-block;
+  background: #ffffff;
+  color: #111827;
+  border: 1px solid #d1d5db;
+  padding: 12px 34px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  transition: var(--transition);
+}
+
+.btn-team-meet:hover {
+  background: #f3f4f6;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.25);
+}
+
+/* ============================================
+   7. CARING IS THE NEW MARKETING (BLOG)
+   ============================================ */
+.about-blog {
+  padding: 90px 0 110px;
+  background-color: var(--bg-dark);
+}
+
+.blog-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 55px;
+}
+
+.blog-title {
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+.blog-subtitle {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  line-height: 1.65;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.blog-card {
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-6px);
+}
+
+.blog-image {
+  border-radius: 8px;
+  overflow: hidden;
+  height: 270px;
+  background: #1e1e24;
+}
+
+.blog-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.blog-card:hover .blog-image img {
+  transform: scale(1.05);
+}
+
+.blog-floating-card {
+  position: relative;
+  margin-top: -65px;
+  margin-left: 20px;
+  margin-right: 20px;
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 24px 20px 20px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+  text-align: center;
+  z-index: 2;
+  transition: var(--transition);
+}
+
+.blog-card:hover .blog-floating-card {
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.6);
+}
+
+.blog-floating-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #334155;
+  line-height: 1.45;
+  margin-bottom: 16px;
+  min-height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blog-readmore {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #16a34a;
+  font-weight: 600;
+  font-size: 0.92rem;
+  transition: var(--transition);
+}
+
+.blog-readmore i {
+  transition: transform 0.2s ease;
+}
+
+.blog-readmore:hover {
+  color: #15803d;
+}
+
+.blog-readmore:hover i {
+  transform: translateX(4px);
+}
+
+/* ============================================
+   RESPONSIVE STYLES FOR ABOUT PAGE
+   ============================================ */
+@media (max-width: 1024px) {
+  .about-hero-title {
+    font-size: 2.6rem;
+  }
+
+  .about-hero-header {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .about-stats-panel {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
+  }
+
+  .about-process-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .about-process-content {
+    padding-left: 0;
+  }
+
+  .mission-row,
+  .vision-row {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .vision-row .mv-content {
+    order: -1;
+  }
+
+  .trust-split-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  .blog-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero {
+    padding: 110px 0 40px;
+  }
+
+  .about-hero-title {
+    font-size: 2.1rem;
+  }
+
+  .about-businesses-title,
+  .trust-title,
+  .team-title,
+  .blog-title,
+  .process-title,
+  .mv-content h2,
+  .trust-content h3 {
+    font-size: 1.85rem;
+  }
+
+  .about-stats-panel {
+    grid-template-columns: 1fr 1fr;
+    padding: 35px 20px;
+  }
+
+  .about-stat-number {
+    font-size: 2.8rem;
+  }
+
+  .about-stat-label {
+    font-size: 0.9rem;
+  }
+
+  .process-actions {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .team-photo {
+    height: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-hero-title {
+    font-size: 1.75rem;
+  }
+
+  .about-stats-panel {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .blog-floating-card {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 20px 15px;
+  }
+}

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Analytics &amp; Insights — STACKLY Dashboard</title>
+  <meta name="description" content="In-depth analytics, conversion metrics, traffic breakdown, patient engagement, and performance reports." />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body class="dashboard-body">
+
+  <div class="dash-overlay" id="dash-overlay"></div>
+
+  <!-- SIDEBAR -->
+  <aside class="dash-sidebar" id="dash-sidebar">
+    <div class="sidebar-header">
+      <a href="index.html" class="sidebar-logo">
+        <img src="images/logo-stackly.webp" alt="STACKLY" class="sidebar-logo-img" />
+      </a>
+      <button class="sidebar-collapse-btn" id="sidebar-close" title="Close sidebar">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <nav class="sidebar-nav">
+      <span class="sidebar-section-label">Main</span>
+      <a href="dashboard.html" class="sidebar-link">
+        <i class="fa-solid fa-grid-2"></i>
+        <span>Dashboard</span>
+      </a>
+      <a href="dash-appointments.html" class="sidebar-link">
+        <i class="fa-solid fa-calendar-check"></i>
+        <span>Appointments</span>
+        <span class="sidebar-badge">5</span>
+      </a>
+      <a href="dash-clients.html" class="sidebar-link">
+        <i class="fa-solid fa-users"></i>
+        <span>Clients</span>
+      </a>
+      <a href="dash-projects.html" class="sidebar-link">
+        <i class="fa-solid fa-briefcase"></i>
+        <span>Projects</span>
+        <span class="sidebar-badge sidebar-badge-blue">3</span>
+      </a>
+      <a href="dash-billing.html" class="sidebar-link">
+        <i class="fa-solid fa-file-invoice-dollar"></i>
+        <span>Billing & Invoices</span>
+      </a>
+
+      <span class="sidebar-section-label">Insights</span>
+      <a href="dash-analytics.html" class="sidebar-link active">
+        <i class="fa-solid fa-chart-mixed"></i>
+        <span>Analytics</span>
+      </a>
+      <a href="dash-reports.html" class="sidebar-link">
+        <i class="fa-solid fa-clipboard-list"></i>
+        <span>Reports</span>
+      </a>
+
+      <span class="sidebar-section-label">General</span>
+      <a href="dash-messages.html" class="sidebar-link">
+        <i class="fa-solid fa-envelope"></i>
+        <span>Messages</span>
+        <span class="sidebar-badge">2</span>
+      </a>
+      <a href="dash-settings.html" class="sidebar-link">
+        <i class="fa-solid fa-gear"></i>
+        <span>Settings</span>
+      </a>
+      <a href="404.html" class="sidebar-link">
+        <i class="fa-solid fa-circle-question"></i>
+        <span>Help & Support</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-avatar" id="sidebar-avatar-initials">DU</div>
+      <div class="sidebar-user-info">
+        <div class="sidebar-user-name" id="sidebar-user-name">Demo User</div>
+        <div class="sidebar-user-role" id="sidebar-user-role">User</div>
+      </div>
+      <button class="sidebar-logout-btn" id="btn-logout" title="Logout">
+        <i class="fa-solid fa-right-from-bracket"></i>
+      </button>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="dash-main">
+    <header class="dash-topbar">
+      <div class="topbar-left">
+        <button class="mobile-menu-btn" id="mobile-menu-btn" title="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="topbar-greeting">
+          Analytics &amp; Performance Metrics
+        </div>
+      </div>
+
+      <div class="topbar-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search metrics or campaigns..." />
+      </div>
+
+      <div class="topbar-right">
+        <button class="topbar-icon-btn" title="Notifications" onclick="window.location.href='dash-messages.html'">
+          <i class="fa-regular fa-bell"></i>
+          <span class="notif-dot"></span>
+        </button>
+        <button class="topbar-icon-btn" title="Messages" onclick="window.location.href='dash-messages.html'">
+          <i class="fa-regular fa-message"></i>
+        </button>
+        <button class="topbar-icon-btn" title="Settings" onclick="window.location.href='dash-settings.html'">
+          <i class="fa-solid fa-gear"></i>
+        </button>
+      </div>
+    </header>
+
+    <div class="dash-content">
+      <!-- Page Header -->
+      <div class="dash-page-header">
+        <div>
+          <h1 class="dash-page-title">Business &amp; Growth Analytics</h1>
+          <p class="dash-page-subtitle">Real-time telemetry on lead acquisitions, retention rates, consultation flow, and revenue ROI.</p>
+        </div>
+        <div class="dash-header-actions">
+          <div class="dash-tab-pills">
+            <button class="dash-tab-pill">7 Days</button>
+            <button class="dash-tab-pill active">30 Days</button>
+            <button class="dash-tab-pill">90 Days</button>
+            <button class="dash-tab-pill">1 Year</button>
+          </div>
+          <a href="404.html" class="btn-dash-primary"><i class="fa-solid fa-download"></i> Download Report</a>
+        </div>
+      </div>
+
+      <!-- Stats Cards -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <div class="stat-icon-box blue"><i class="fa-solid fa-chart-line-up"></i></div>
+            <span class="stat-trend up"><i class="fa-solid fa-arrow-up"></i> +32.4%</span>
+          </div>
+          <div class="stat-value">54.2K</div>
+          <div class="stat-label">Monthly Impressions</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <div class="stat-icon-box green"><i class="fa-solid fa-bullseye-arrow"></i></div>
+            <span class="stat-trend up"><i class="fa-solid fa-arrow-up"></i> +1.2%</span>
+          </div>
+          <div class="stat-value">4.85%</div>
+          <div class="stat-label">Conversion Rate</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <div class="stat-icon-box amber"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+            <span class="stat-trend up"><i class="fa-solid fa-arrow-up"></i> +18%</span>
+          </div>
+          <div class="stat-value">₹28,500</div>
+          <div class="stat-label">Avg. Case Value</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <div class="stat-icon-box purple"><i class="fa-solid fa-rotate-right"></i></div>
+            <span class="stat-trend up">High</span>
+          </div>
+          <div class="stat-value">92.4%</div>
+          <div class="stat-label">Client Retention</div>
+        </div>
+      </div>
+
+      <!-- Main Visual Charts Grid -->
+      <div class="dash-grid-main analytics-grid">
+        <!-- Large Chart -->
+        <div class="dash-card">
+          <div class="dash-card-header">
+            <div>
+              <div class="dash-card-title">Patient &amp; Client Volume Flow (2026)</div>
+              <div class="dash-card-subtitle">Monthly appointments vs consultation completions</div>
+            </div>
+            <a href="404.html" class="action-btn-sm" title="Expand"><i class="fa-solid fa-maximize"></i></a>
+          </div>
+          <div class="chart-area" style="height:300px;">
+            <svg class="chart-placeholder-svg" viewBox="0 0 800 300" preserveAspectRatio="none">
+              <!-- Grid lines -->
+              <line x1="0" y1="60" x2="800" y2="60" stroke="#1e2235" stroke-width="1" />
+              <line x1="0" y1="120" x2="800" y2="120" stroke="#1e2235" stroke-width="1" />
+              <line x1="0" y1="180" x2="800" y2="180" stroke="#1e2235" stroke-width="1" />
+              <line x1="0" y1="240" x2="800" y2="240" stroke="#1e2235" stroke-width="1" />
+
+              <defs>
+                <linearGradient id="analyticsGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#2563eb" stop-opacity="0.35" />
+                  <stop offset="100%" stop-color="#2563eb" stop-opacity="0.01" />
+                </linearGradient>
+              </defs>
+
+              <path d="M0 260 Q80 230 140 190 T280 140 T420 160 T560 90 T700 110 L800 80 L800 300 L0 300 Z" fill="url(#analyticsGrad)" />
+              <path d="M0 260 Q80 230 140 190 T280 140 T420 160 T560 90 T700 110 L800 80" fill="none" stroke="#3b82f6" stroke-width="3" />
+
+              <circle cx="140" cy="190" r="4" fill="#3b82f6" />
+              <circle cx="280" cy="140" r="4" fill="#3b82f6" />
+              <circle cx="420" cy="160" r="4" fill="#3b82f6" />
+              <circle cx="560" cy="90" r="6" fill="#60a5fa" stroke="#0f111a" stroke-width="2" />
+              <circle cx="700" cy="110" r="4" fill="#3b82f6" />
+
+              <!-- X-Axis Labels -->
+              <text x="30" y="290" fill="#64748b" font-size="11" font-family="Inter">Jan</text>
+              <text x="130" y="290" fill="#64748b" font-size="11" font-family="Inter">Mar</text>
+              <text x="270" y="290" fill="#64748b" font-size="11" font-family="Inter">May</text>
+              <text x="410" y="290" fill="#64748b" font-size="11" font-family="Inter">Jul</text>
+              <text x="550" y="290" fill="#64748b" font-size="11" font-family="Inter">Sep</text>
+              <text x="690" y="290" fill="#64748b" font-size="11" font-family="Inter">Nov</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Acquisition Channels -->
+        <div class="dash-card" style="display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <div class="dash-card-header">
+              <div>
+                <div class="dash-card-title">Traffic &amp; Acquisition</div>
+                <div class="dash-card-subtitle">Inbound referral sources</div>
+              </div>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:16px; margin-top:8px;">
+              <div>
+                <div style="display:flex; justify-content:space-between; font-size:0.82rem; margin-bottom:5px;">
+                  <span style="color:#e2e8f0; font-weight:600;"><i class="fa-solid fa-magnifying-glass" style="color:#3b82f6; width:16px;"></i> Organic Search (SEO)</span>
+                  <span style="font-weight:700; color:#3b82f6;">42%</span>
+                </div>
+                <div class="progress-bar-wrap"><div class="progress-fill blue" style="width:42%;"></div></div>
+              </div>
+              <div>
+                <div style="display:flex; justify-content:space-between; font-size:0.82rem; margin-bottom:5px;">
+                  <span style="color:#e2e8f0; font-weight:600;"><i class="fa-solid fa-arrow-pointer" style="color:#10b981; width:16px;"></i> Direct Bookings</span>
+                  <span style="font-weight:700; color:#10b981;">28%</span>
+                </div>
+                <div class="progress-bar-wrap"><div class="progress-fill green" style="width:28%;"></div></div>
+              </div>
+              <div>
+                <div style="display:flex; justify-content:space-between; font-size:0.82rem; margin-bottom:5px;">
+                  <span style="color:#e2e8f0; font-weight:600;"><i class="fa-solid fa-user-group" style="color:#8b5cf6; width:16px;"></i> Client Referrals</span>
+                  <span style="font-weight:700; color:#8b5cf6;">18%</span>
+                </div>
+                <div class="progress-bar-wrap"><div class="progress-fill purple" style="width:18%;"></div></div>
+              </div>
+              <div>
+                <div style="display:flex; justify-content:space-between; font-size:0.82rem; margin-bottom:5px;">
+                  <span style="color:#e2e8f0; font-weight:600;"><i class="fa-brands fa-linkedin" style="color:#f59e0b; width:16px;"></i> Social &amp; Ads</span>
+                  <span style="font-weight:700; color:#f59e0b;">12%</span>
+                </div>
+                <div class="progress-bar-wrap"><div class="progress-fill amber" style="width:12%;"></div></div>
+              </div>
+            </div>
+          </div>
+          <div style="border-top:1px solid rgba(255,255,255,0.06); padding-top:14px; margin-top:16px; text-align:center;">
+            <a href="404.html" style="font-size:0.8rem; color:#60a5fa; font-weight:600;">View Detailed Attribution Matrix &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Regional Distribution Table -->
+      <div class="dash-card">
+        <div class="dash-card-header">
+          <div>
+            <div class="dash-card-title">Geographic Branch Telemetry</div>
+            <div class="dash-card-subtitle">Active engagement split across key regional zones</div>
+          </div>
+          <a href="404.html" class="btn-dash-secondary"><i class="fa-solid fa-map-location-dot"></i> Heatmap View</a>
+        </div>
+        <div class="appointments-table-wrap">
+          <table class="appointments-table">
+            <thead>
+              <tr>
+                <th>Region / Branch</th>
+                <th>Active Clients</th>
+                <th>Monthly Sessions</th>
+                <th>Avg Response Time</th>
+                <th>Revenue Share</th>
+                <th>Growth Rate</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span style="font-weight:600; color:#f1f5f9;">📍 Salem Headquarters (MMR Complex)</span></td>
+                <td>1,120</td>
+                <td>420</td>
+                <td>12 mins</td>
+                <td><span style="font-weight:700; color:#34d399;">₹14.8L (45%)</span></td>
+                <td><span class="status-tag confirmed"><i class="fa-solid fa-arrow-up"></i> +28%</span></td>
+              </tr>
+              <tr>
+                <td><span style="font-weight:600; color:#f1f5f9;">📍 Chennai Digital Hub</span></td>
+                <td>680</td>
+                <td>280</td>
+                <td>15 mins</td>
+                <td><span style="font-weight:700; color:#34d399;">₹9.4L (28%)</span></td>
+                <td><span class="status-tag confirmed"><i class="fa-solid fa-arrow-up"></i> +16%</span></td>
+              </tr>
+              <tr>
+                <td><span style="font-weight:600; color:#f1f5f9;">📍 Coimbatore Tech Center</span></td>
+                <td>420</td>
+                <td>160</td>
+                <td>18 mins</td>
+                <td><span style="font-weight:700; color:#34d399;">₹5.2L (16%)</span></td>
+                <td><span class="status-tag confirmed"><i class="fa-solid fa-arrow-up"></i> +12%</span></td>
+              </tr>
+              <tr>
+                <td><span style="font-weight:600; color:#f1f5f9;">📍 Global / Remote US Retainers</span></td>
+                <td>260</td>
+                <td>95</td>
+                <td>24 mins</td>
+                <td><span style="font-weight:700; color:#34d399;">₹5.4L (11%)</span></td>
+                <td><span class="status-tag confirmed"><i class="fa-solid fa-arrow-up"></i> +34%</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="js/dashUtils.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      dashInit('dash-analytics.html');
+    });
+  </script>
+</body>
+</html>
+

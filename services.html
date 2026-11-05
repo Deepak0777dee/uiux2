@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services — STACKLY | Premium Digital Solutions</title>
+  <meta name="description" content="Explore STACKLY's premium digital solutions: Website & UI/UX design, Web Development, AI Chatbots, Creative Services, and ongoing optimization." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/services.css" />
+</head>
+<body>
+
+  <!-- ==========================================
+       HEADER
+       ========================================== -->
+  <header class="header" id="header">
+    <div class="container">
+      <a href="index.html" class="logo" id="logo">
+        <img src="images/logo-stackly.webp" alt="STACKLY" class="site-logo" />
+      </a>
+
+      <nav class="nav-menu" id="nav-menu">
+        <a href="index.html" id="nav-home">Home</a>
+        <a href="about.html" id="nav-about">About Us</a>
+        <a href="services.html" class="active" id="nav-services">Services</a>
+        <a href="career.html" id="nav-career">Career</a>
+        <a href="blogs.html" id="nav-blogs">Blogs</a>
+        <a href="contact.html" id="nav-contact">Contact Us</a>
+      </nav>
+
+      <a href="login.html" class="btn-cta" id="btn-get-started">GET STARTED</a>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav-overlay" id="mobile-overlay"></div>
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="services.html" class="active">Services</a>
+    <a href="career.html">Career</a>
+    <a href="blogs.html">Blogs</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="login.html" class="btn-cta">GET STARTED</a>
+  </nav>
+
+  <!-- ==========================================
+       1. HERO SECTION & 6 SERVICES GRID
+       ========================================== -->
+  <section class="services-hero" id="services-hero">
+    <div class="container">
+      <div class="services-hero-header reveal">
+        <div class="services-pill-badge">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+          <span>Full-Service Digital Agency</span>
+        </div>
+        <h1 class="services-hero-title">Premium Digital Solutions</h1>
+        <p class="services-hero-desc">
+          From branding and UX design to AI-powered automation and marketing, we transform brands with creative and intuitive digital solutions.
+        </p>
+      </div>
+
+      <!-- 6 Service Cards Grid -->
+      <div class="services-grid reveal">
+        <!-- Card 1 -->
+        <div class="service-card">
+          <div class="service-icon-wrapper icon-blue">
+            <i class="fa-solid fa-bullseye"></i>
+          </div>
+          <h3 class="service-card-title">Website &amp; UI/UX Design</h3>
+          <p class="service-card-desc">
+            Custom website design aligned with your brand identity. User-centered, responsive interfaces with research-led UX including heatmaps, journey mapping, and SEO optimization.
+          </p>
+          <div class="service-checklist">
+            <div class="checklist-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>User Research &amp; Journey Mapping</span>
+            </div>
+            <div class="checklist-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>High-Fidelity Mockups &amp; Wireframes</span>
+            </div>
+            <div class="checklist-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>Design Systems &amp; Style Guides</span>
+            </div>
+            <div class="checklist-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>Dark/Light Theme Flexibility</span>
+            </div>
+          </div>
+          <a href="404.html" class="service-card-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="service-card">
+          <div class="service-icon-wrapper icon-teal">
+            <i class="fa-solid fa-code"></i>
+          </div>
+          <h3 class="service-card-title">Web Development</h3>
+          <p class="service-card-desc">
+            Clean, fast-loading custom websites built on flexible platforms. CMS integration for easy content updates with optimized performance for improved SEO and web vitals.
+          </p>
+          <div class="service-checklist">
+            <div class="checklist-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>Responsive &amp; Mobile-Optimized</span>
+            </div>
+            <div class="checklist-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>CMS Integration</span>
+            </div>
+            <div class="checklist-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>Scalable Architecture</span>
+            </div>
+            <div class="checklist-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>A/B Testing &amp; Analytics</span>
+            </div>
+          </div>
+          <a href="404.html" class="service-card-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="service-card">
+          <div class="service-icon-wrapper icon-purple">
+            <i class="fa-solid fa-robot"></i>
+          </div>
+          <h3 class="service-card-title">AI Chatbots &amp; Automation</h3>
+          <p class="service-card-desc">
+            Multi-platform AI chatbot design for WhatsApp, Facebook, and websites with 24/7 engagement. Intelligent workflows driven by GPT-based NLP for personalized interactions.
+          </p>
+          <div class="service-checklist">
+            <div class="checklist-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>Multi-Platform Deployment</span>
+            </div>
+            <div class="checklist-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>Automated FAQs &amp; Lead Qualification</span>
+            </div>
+            <div class="checklist-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>Appointment Scheduling</span>
+            </div>
+            <div class="checklist-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>Customer Journey Automation</span>
+            </div>
+          </div>
+          <a href="404.html" class="service-card-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="service-card">
+          <div class="service-icon-wrapper icon-coral">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+          </div>
+          <h3 class="service-card-title">AI-Powered Creative Services</h3>
+          <p class="service-card-desc">
+            AI-enhanced product photography with stylized, consistent visuals. Marketing video creation using AI visual generators for promo reels, product ads, and testimonial videos.
+          </p>
+          <div class="service-checklist">
+            <div class="checklist-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>AI Product Photography</span>
+            </div>
+            <div class="checklist-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>Marketing Video Creation</span>
+            </div>
+            <div class="checklist-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>Automated Content Generation</span>
+            </div>
+            <div class="checklist-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>Brand-Consistent Visuals</span>
+            </div>
+          </div>
+          <a href="404.html" class="service-card-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="service-card">
+          <div class="service-icon-wrapper icon-green">
+            <i class="fa-solid fa-mobile-screen"></i>
+          </div>
+          <h3 class="service-card-title">Mobile App UI/UX Design</h3>
+          <p class="service-card-desc">
+            Intuitive, cross-platform mobile UI/UX for iOS and Android. Complete app screen design including splash, login, profile, onboarding, and dashboard flows with interactive prototypes.
+          </p>
+          <div class="service-checklist">
+            <div class="checklist-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>iOS &amp; Android Design</span>
+            </div>
+            <div class="checklist-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>Interactive Prototypes (Figma)</span>
+            </div>
+            <div class="checklist-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>Complete User Flows</span>
+            </div>
+            <div class="checklist-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>Design System Setup</span>
+            </div>
+          </div>
+          <a href="404.html" class="service-card-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="service-card">
+          <div class="service-icon-wrapper icon-blue">
+            <i class="fa-solid fa-chart-simple"></i>
+          </div>
+          <h3 class="service-card-title">Ongoing Optimization &amp; Support</h3>
+          <p class="service-card-desc">
+            Regular performance audits, conversion tracking, and UX tuning. Content updates, design revisions, and maintenance packages post-launch with monthly reporting for ROI.
+          </p>
+          <div class="service-checklist">
+            <div class="checklist-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>Performance Audits</span>
+            </div>
+            <div class="checklist-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>Conversion Tracking</span>
+            </div>
+            <div class="checklist-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>Content Updates &amp; Revisions</span>
+            </div>
+            <div class="checklist-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>Monthly Insights &amp; Reporting</span>
+            </div>
+          </div>
+          <a href="404.html" class="service-card-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       2. WHY CHOOSE GRAPHIKRAFTS
+       ========================================== -->
+  <section class="services-why-choose" id="why-choose">
+    <div class="container">
+      <div class="why-choose-header reveal">
+        <h2 class="why-choose-title">Why Choose Graphikrafts</h2>
+        <p class="why-choose-subtitle">Our expertise delivers measurable results</p>
+      </div>
+
+      <div class="why-choose-grid reveal">
+        <!-- 1 -->
+        <div class="why-choose-card">
+          <div class="why-choose-icon">
+            <i class="fa-solid fa-bullseye"></i>
+          </div>
+          <h4>Seamless UX &amp; UI</h4>
+          <p>Research-backed design that boosts engagement and trust</p>
+        </div>
+
+        <!-- 2 -->
+        <div class="why-choose-card">
+          <div class="why-choose-icon">
+            <i class="fa-solid fa-robot"></i>
+          </div>
+          <h4>AI Integration</h4>
+          <p>24/7 automation, support, and marketing efficiency</p>
+        </div>
+
+        <!-- 3 -->
+        <div class="why-choose-card">
+          <div class="why-choose-icon">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <h4>Scalable Build</h4>
+          <p>Built for future growth—sites/apps adapt over time</p>
+        </div>
+
+        <!-- 4 -->
+        <div class="why-choose-card">
+          <div class="why-choose-icon">
+            <i class="fa-solid fa-chart-column"></i>
+          </div>
+          <h4>Performance-Driven</h4>
+          <p>Ongoing insights &amp; optimization yield measurable results</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       3. DEEP DIVE SERVICE SHOWCASE
+       ========================================== -->
+  <section class="services-deep-dive" id="deep-dive">
+    <div class="container">
+      <div class="deep-dive-grid">
+        <div class="deep-dive-content reveal-left">
+          <div class="deep-dive-badge">
+            <i class="fa-solid fa-bullseye"></i>
+          </div>
+          <h2 class="deep-dive-title">Website &amp; UI/UX Design</h2>
+          <div class="deep-dive-subheading">Research-Led Design That Drives Results</div>
+          <p class="deep-dive-desc">
+            We create custom website designs aligned with your brand identity, featuring user-centered layouts, responsive interfaces, and research-led UX including heatmaps, journey mapping, content strategy, and SEO optimization.
+          </p>
+          <div class="deep-dive-actions">
+            <a href="login.html" class="btn-dive-primary">
+              Get Started <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="404.html" class="btn-dive-secondary">View Examples</a>
+          </div>
+        </div>
+
+        <div class="deep-dive-visual reveal-right">
+          <img src="images/service-monitor.png" alt="Website & UI/UX Design Mockup on Monitor" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       4. KEY BENEFITS & DELIVERABLES
+       ========================================== -->
+  <section class="services-benefits-deliverables" id="benefits-deliverables">
+    <div class="container">
+      <div class="bd-grid">
+        <!-- Key Benefits -->
+        <div class="bd-col reveal-left">
+          <h2 class="bd-col-title">Key Benefits</h2>
+          <div class="benefits-list">
+            <div class="benefit-item">
+              <span class="benefit-check"><i class="fa-solid fa-check"></i></span>
+              <span>Increased user engagement through research-backed design</span>
+            </div>
+            <div class="benefit-item">
+              <span class="benefit-check"><i class="fa-solid fa-check"></i></span>
+              <span>Higher conversion rates with optimized user flows</span>
+            </div>
+            <div class="benefit-item">
+              <span class="benefit-check"><i class="fa-solid fa-check"></i></span>
+              <span>Improved SEO performance through strategic content architecture</span>
+            </div>
+            <div class="benefit-item">
+              <span class="benefit-check"><i class="fa-solid fa-check"></i></span>
+              <span>Brand-accurate aesthetics that build trust and recognition</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Deliverables -->
+        <div class="bd-col reveal-right">
+          <h2 class="bd-col-title">Deliverables</h2>
+          <div class="deliverables-card">
+            <div class="deliverable-item">
+              <span class="deliverable-dot"></span>
+              <span>Complete Design System &amp; Style Guide</span>
+            </div>
+            <div class="deliverable-item">
+              <span class="deliverable-dot"></span>
+              <span>High-Fidelity Mockups (Desktop, Tablet, Mobile)</span>
+            </div>
+            <div class="deliverable-item">
+              <span class="deliverable-dot"></span>
+              <span>Interactive Prototypes in Figma</span>
+            </div>
+            <div class="deliverable-item">
+              <span class="deliverable-dot"></span>
+              <span>User Journey Maps &amp; Research Reports</span>
+            </div>
+            <div class="deliverable-item">
+              <span class="deliverable-dot"></span>
+              <span>SEO-Optimized Content Strategy</span>
+            </div>
+            <div class="deliverable-item">
+              <span class="deliverable-dot"></span>
+              <span>Dark/Light Theme Variations</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       5. OUR VALUES
+       ========================================== -->
+  <section class="services-values" id="values">
+    <div class="container">
+      <div class="values-box reveal">
+        <div class="values-header">
+          <h2 class="values-title">Our Values</h2>
+          <p class="values-subtitle">The principles that guide everything we do</p>
+        </div>
+
+        <div class="values-grid">
+          <div class="value-col">
+            <div class="value-icon">
+              <i class="fa-solid fa-bullseye"></i>
+            </div>
+            <h4>User-First Philosophy</h4>
+            <p>Research-backed design that prioritizes user needs and drives engagement through seamless UX.</p>
+          </div>
+
+          <div class="value-col">
+            <div class="value-icon">
+              <i class="fa-solid fa-bolt"></i>
+            </div>
+            <h4>AI Integration</h4>
+            <p>24/7 automation, intelligent support, and AI-enhanced creative services for maximum efficiency.</p>
+          </div>
+
+          <div class="value-col">
+            <div class="value-icon">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <h4>Performance-Driven</h4>
+            <p>Ongoing insights and optimization with measurable results through analytics and A/B testing.</p>
+          </div>
+
+          <div class="value-col">
+            <div class="value-icon">
+              <i class="fa-solid fa-user-group"></i>
+            </div>
+            <h4>Scalable Solutions</h4>
+            <p>Built for future growth with flexible architecture that adapts to your evolving business needs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       6. SHOWCASE BANNERS
+       ========================================== -->
+  <section class="services-showcase" id="showcase">
+    <div class="container">
+      <!-- Showcase 1 -->
+      <div class="showcase-banner reveal">
+        <span class="featured-pill">Featured</span>
+        <img src="images/service-farmer.png" alt="Featured Project — Agriculture & Automation" loading="lazy" />
+      </div>
+
+      <!-- Showcase 2 -->
+      <div class="showcase-banner reveal">
+        <span class="featured-pill">Featured</span>
+        <img src="images/service-driver.png" alt="Featured Project — Luxury Automotive & Experience" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       7. READY TO GET STARTED CTA
+       ========================================== -->
+  <section class="services-cta" id="cta">
+    <div class="container">
+      <div class="services-cta-box reveal-scale">
+        <h2>Ready to Get Started?</h2>
+        <p>Let's discuss your project and how our website &amp; ui/ux design services can help you achieve your goals.</p>
+        <a href="404.html" class="btn-cta-blue">
+          Start Your Project <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       8. UNIVERSAL FOOTER
+       ========================================== -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand Info -->
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-link">
+            <img src="images/logo-stackly.webp" alt="STACKLY" class="footer-logo-img" />
+          </a>
+          <p>Velit facilisi senectus velit elementum. Consequat vel arcu feugiat dui eu tempor pretium at porta. Dui pellentesque sagittis scelerisque amet vestibulum commodo quam natoque varius. Semper aliquam elementum posuere lacinia. Egestas dapi...</p>
+          <div class="footer-social">
+            <a href="404.html" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Useful links -->
+        <div class="footer-col">
+          <h4>Useful links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blogs.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="contact.html">F.A.Q</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Services -->
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html">Marketing Strategy</a></li>
+            <li><a href="services.html">Financial management</a></li>
+            <li><a href="services.html">Business Strategy</a></li>
+            <li><a href="services.html">Sales and Marketing</a></li>
+            <li><a href="services.html">Human Resources</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Address, Email, Phone -->
+        <div class="footer-col footer-contact-block">
+          <div class="footer-contact-group">
+            <h5>Address</h5>
+            <p>MMR Complex,<br />Chinna Thirupathi,<br />Salem, TN 636008</p>
+          </div>
+          <div class="footer-contact-group">
+            <h5>Email</h5>
+            <a href="mailto:thestackly@gmail.com">thestackly@gmail.com</a>
+          </div>
+          <div class="footer-contact-group">
+            <h5>Phone</h5>
+            <a href="tel:+917010792745">+91 70107 92745</a>
+          </div>
+        </div>
+
+        <!-- Col 5: Newsletter -->
+        <div class="footer-col footer-newsletter">
+          <h4>Subscribe for our newsletter</h4>
+          <p>Consequat vel arcu feugiat dui eu tempor pretium</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to STACKLY newsletter!');">
+            <input type="email" class="newsletter-input" placeholder="Your email" required />
+            <button type="submit" class="newsletter-btn">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy;Copyright Stackly Business 2026.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>

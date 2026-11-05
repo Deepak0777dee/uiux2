@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects &amp; Cases — STACKLY Dashboard</title>
+  <meta name="description" content="Manage projects, clinical treatment pipelines, design systems, and client deliverables." />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body class="dashboard-body">
+
+  <div class="dash-overlay" id="dash-overlay"></div>
+
+  <!-- SIDEBAR -->
+  <aside class="dash-sidebar" id="dash-sidebar">
+    <div class="sidebar-header">
+      <a href="index.html" class="sidebar-logo">
+        <img src="images/logo-stackly.webp" alt="STACKLY" class="sidebar-logo-img" />
+      </a>
+      <button class="sidebar-collapse-btn" id="sidebar-close" title="Close sidebar">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <nav class="sidebar-nav">
+      <span class="sidebar-section-label">Main</span>
+      <a href="dashboard.html" class="sidebar-link">
+        <i class="fa-solid fa-grid-2"></i>
+        <span>Dashboard</span>
+      </a>
+      <a href="dash-appointments.html" class="sidebar-link">
+        <i class="fa-solid fa-calendar-check"></i>
+        <span>Appointments</span>
+        <span class="sidebar-badge">5</span>
+      </a>
+      <a href="dash-clients.html" class="sidebar-link">
+        <i class="fa-solid fa-users"></i>
+        <span>Clients</span>
+      </a>
+      <a href="dash-projects.html" class="sidebar-link active">
+        <i class="fa-solid fa-briefcase"></i>
+        <span>Projects</span>
+        <span class="sidebar-badge sidebar-badge-blue">3</span>
+      </a>
+      <a href="dash-billing.html" class="sidebar-link">
+        <i class="fa-solid fa-file-invoice-dollar"></i>
+        <span>Billing & Invoices</span>
+      </a>
+
+      <span class="sidebar-section-label">Insights</span>
+      <a href="dash-analytics.html" class="sidebar-link">
+        <i class="fa-solid fa-chart-mixed"></i>
+        <span>Analytics</span>
+      </a>
+      <a href="dash-reports.html" class="sidebar-link">
+        <i class="fa-solid fa-clipboard-list"></i>
+        <span>Reports</span>
+      </a>
+
+      <span class="sidebar-section-label">General</span>
+      <a href="dash-messages.html" class="sidebar-link">
+        <i class="fa-solid fa-envelope"></i>
+        <span>Messages</span>
+        <span class="sidebar-badge">2</span>
+      </a>
+      <a href="dash-settings.html" class="sidebar-link">
+        <i class="fa-solid fa-gear"></i>
+        <span>Settings</span>
+      </a>
+      <a href="404.html" class="sidebar-link">
+        <i class="fa-solid fa-circle-question"></i>
+        <span>Help & Support</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-avatar" id="sidebar-avatar-initials">DU</div>
+      <div class="sidebar-user-info">
+        <div class="sidebar-user-name" id="sidebar-user-name">Demo User</div>
+        <div class="sidebar-user-role" id="sidebar-user-role">User</div>
+      </div>
+      <button class="sidebar-logout-btn" id="btn-logout" title="Logout">
+        <i class="fa-solid fa-right-from-bracket"></i>
+      </button>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="dash-main">
+    <header class="dash-topbar">
+      <div class="topbar-left">
+        <button class="mobile-menu-btn" id="mobile-menu-btn" title="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="topbar-greeting">
+          Active Projects &amp; Cases
+        </div>
+      </div>
+
+      <div class="topbar-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search projects or case studies..." id="project-search" />
+      </div>
+
+      <div class="topbar-right">
+        <button class="topbar-icon-btn" title="Notifications" onclick="window.location.href='dash-messages.html'">
+          <i class="fa-regular fa-bell"></i>
+          <span class="notif-dot"></span>
+        </button>
+        <button class="topbar-icon-btn" title="Messages" onclick="window.location.href='dash-messages.html'">
+          <i class="fa-regular fa-message"></i>
+        </button>
+        <button class="topbar-icon-btn" title="Settings" onclick="window.location.href='dash-settings.html'">
+          <i class="fa-solid fa-gear"></i>
+        </button>
+      </div>
+    </header>
+
+    <div class="dash-content">
+      <!-- Page Header -->
+      <div class="dash-page-header">
+        <div>
+          <h1 class="dash-page-title">Project Pipelines</h1>
+          <p class="dash-page-subtitle">Track deliverables, sprints, clinical procedures, and development status.</p>
+        </div>
+        <div class="dash-header-actions">
+          <a href="404.html" class="btn-dash-secondary"><i class="fa-solid fa-table-columns"></i> Kanban Board</a>
+          <a href="404.html" class="btn-dash-primary"><i class="fa-solid fa-plus"></i> Create New Project</a>
+        </div>
+      </div>
+
+      <!-- Stats Cards -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <div class="stat-icon-box blue"><i class="fa-solid fa-layer-group"></i></div>
+            <span class="stat-trend up">All</span>
+          </div>
+          <div class="stat-value">48</div>
+          <div class="stat-label">Total Projects</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <div class="stat-icon-box amber"><i class="fa-solid fa-spinner"></i></div>
+            <span class="stat-trend up">Active</span>
+          </div>
+          <div class="stat-value">18</div>
+          <div class="stat-label">In Progress</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <div class="stat-icon-box purple"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+            <span class="stat-trend down">Review</span>
+          </div>
+          <div class="stat-value">6</div>
+          <div class="stat-label">In QA &amp; Review</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <div class="stat-icon-box green"><i class="fa-solid fa-badge-check"></i></div>
+            <span class="stat-trend up">Finished</span>
+          </div>
+          <div class="stat-value">24</div>
+          <div class="stat-label">Completed Deliverables</div>
+        </div>
+      </div>
+
+      <!-- Filter Bar -->
+      <div class="dash-filter-bar">
+        <div class="filter-group-left">
+          <div class="dash-tab-pills" id="project-filters">
+            <button class="dash-tab-pill active" data-status="all">All Projects (48)</button>
+            <button class="dash-tab-pill" data-status="in-progress">In Progress (18)</button>
+            <button class="dash-tab-pill" data-status="review">In Review (6)</button>
+            <button class="dash-tab-pill" data-status="completed">Completed (24)</button>
+          </div>
+          <select class="filter-select" onchange="window.location.href='404.html'">
+            <option>All Categories</option>
+            <option>Brand Identity</option>
+            <option>UI/UX Design</option>
+            <option>Web &amp; Mobile App</option>
+            <option>SEO &amp; Growth Strategy</option>
+          </select>
+        </div>
+        <div class="filter-group-right">
+          <a href="404.html" class="btn-dash-secondary"><i class="fa-solid fa-arrow-down-wide-short"></i> Sort: Newest</a>
+        </div>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="cards-3-col" id="projects-grid">
+        <!-- Project 1 -->
+        <div class="dash-card project-card" data-status="in-progress" style="display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+              <span class="status-tag pending"><span class="status-dot amber"></span> In Progress</span>
+              <a href="404.html" class="action-btn-sm" title="More"><i class="fa-solid fa-ellipsis"></i></a>
+            </div>
+            <h3 style="font-size:1.1rem; color:#f8fafc; font-weight:700; margin-bottom:6px;">TechVista — Brand Redesign</h3>
+            <p style="font-size:0.82rem; color:#94a3b8; line-height:1.5; margin-bottom:16px;">
+              Complete visual design overhaul, responsive web system, guidelines, and corporate marketing collateral.
+            </p>
+          </div>
+          <div>
+            <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom:6px;">
+              <span style="color:#64748b;">Progress</span>
+              <span style="font-weight:700; color:#60a5fa;">85%</span>
+            </div>
+            <div class="progress-bar-wrap" style="margin-bottom:16px;">
+              <div class="progress-fill blue" style="width:85%;"></div>
+            </div>
+            <div style="display:flex; align-items:center; justify-content:space-between; border-top:1px solid rgba(255,255,255,0.06); padding-top:12px; font-size:0.8rem; color:#94a3b8;">
+              <span><i class="fa-regular fa-calendar"></i> Due: Nov 15</span>
+              <span style="font-weight:700; color:#f1f5f9;">₹3.4L</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="dash-card project-card" data-status="in-progress" style="display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+              <span class="status-tag pending"><span class="status-dot amber"></span> In Progress</span>
+              <a href="404.html" class="action-btn-sm" title="More"><i class="fa-solid fa-ellipsis"></i></a>
+            </div>
+            <h3 style="font-size:1.1rem; color:#f8fafc; font-weight:700; margin-bottom:6px;">GreenLabs — Mobile App UI</h3>
+            <p style="font-size:0.82rem; color:#94a3b8; line-height:1.5; margin-bottom:16px;">
+              Cross-platform iOS and Android medical app design with telemedicine bookings and lab report portal.
+            </p>
+          </div>
+          <div>
+            <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom:6px;">
+              <span style="color:#64748b;">Progress</span>
+              <span style="font-weight:700; color:#34d399;">62%</span>
+            </div>
+            <div class="progress-bar-wrap" style="margin-bottom:16px;">
+              <div class="progress-fill green" style="width:62%;"></div>
+            </div>
+            <div style="display:flex; align-items:center; justify-content:space-between; border-top:1px solid rgba(255,255,255,0.06); padding-top:12px; font-size:0.8rem; color:#94a3b8;">
+              <span><i class="fa-regular fa-calendar"></i> Due: Nov 28</span>
+              <span style="font-weight:700; color:#f1f5f9;">₹4.2L</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="dash-card project-card" data-status="review" style="display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+              <span class="status-tag completed" style="background:rgba(139,92,246,0.15); color:#a78bfa;"><span class="status-dot" style="background:#a78bfa;"></span> In Review</span>
+              <a href="404.html" class="action-btn-sm" title="More"><i class="fa-solid fa-ellipsis"></i></a>
+            </div>
+            <h3 style="font-size:1.1rem; color:#f8fafc; font-weight:700; margin-bottom:6px;">CloudSphere — SEO Engine</h3>
+            <p style="font-size:0.82rem; color:#94a3b8; line-height:1.5; margin-bottom:16px;">
+              Comprehensive semantic SEO optimization, indexing architecture, content strategy, and page speed overhaul.
+            </p>
+          </div>
+          <div>
+            <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom:6px;">
+              <span style="color:#64748b;">Progress</span>
+              <span style="font-weight:700; color:#a78bfa;">90%</span>
+            </div>
+            <div class="progress-bar-wrap" style="margin-bottom:16px;">
+              <div class="progress-fill purple" style="width:90%;"></div>
+            </div>
+            <div style="display:flex; align-items:center; justify-content:space-between; border-top:1px solid rgba(255,255,255,0.06); padding-top:12px; font-size:0.8rem; color:#94a3b8;">
+              <span><i class="fa-regular fa-calendar"></i> Due: Nov 10</span>
+              <span style="font-weight:700; color:#f1f5f9;">₹2.5L</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="dash-card project-card" data-status="completed" style="display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+              <span class="status-tag confirmed"><span class="status-dot green"></span> Completed</span>
+              <a href="404.html" class="action-btn-sm" title="More"><i class="fa-solid fa-ellipsis"></i></a>
+            </div>
+            <h3 style="font-size:1.1rem; color:#f8fafc; font-weight:700; margin-bottom:6px;">MediCare — Patient Portal</h3>
+            <p style="font-size:0.82rem; color:#94a3b8; line-height:1.5; margin-bottom:16px;">
+              Full-featured dental clinic queue tracker, treatment history viewer, and automated appointment reminders.
+            </p>
+          </div>
+          <div>
+            <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom:6px;">
+              <span style="color:#64748b;">Progress</span>
+              <span style="font-weight:700; color:#34d399;">100%</span>
+            </div>
+            <div class="progress-bar-wrap" style="margin-bottom:16px;">
+              <div class="progress-fill green" style="width:100%;"></div>
+            </div>
+            <div style="display:flex; align-items:center; justify-content:space-between; border-top:1px solid rgba(255,255,255,0.06); padding-top:12px; font-size:0.8rem; color:#94a3b8;">
+              <span><i class="fa-regular fa-calendar-check"></i> Launched</span>
+              <span style="font-weight:700; color:#f1f5f9;">₹6.5L</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="dash-card project-card" data-status="in-progress" style="display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+              <span class="status-tag pending"><span class="status-dot amber"></span> In Progress</span>
+              <a href="404.html" class="action-btn-sm" title="More"><i class="fa-solid fa-ellipsis"></i></a>
+            </div>
+            <h3 style="font-size:1.1rem; color:#f8fafc; font-weight:700; margin-bottom:6px;">BuildNext — Real Estate Platform</h3>
+            <p style="font-size:0.82rem; color:#94a3b8; line-height:1.5; margin-bottom:16px;">
+              3D interactive virtual tour integration, smart mortgage calculations, and lead capture funnels.
+            </p>
+          </div>
+          <div>
+            <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom:6px;">
+              <span style="color:#64748b;">Progress</span>
+              <span style="font-weight:700; color:#fbbf24;">40%</span>
+            </div>
+            <div class="progress-bar-wrap" style="margin-bottom:16px;">
+              <div class="progress-fill amber" style="width:40%;"></div>
+            </div>
+            <div style="display:flex; align-items:center; justify-content:space-between; border-top:1px solid rgba(255,255,255,0.06); padding-top:12px; font-size:0.8rem; color:#94a3b8;">
+              <span><i class="fa-regular fa-calendar"></i> Due: Dec 20</span>
+              <span style="font-weight:700; color:#f1f5f9;">₹5.8L</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="dash-card project-card" data-status="review" style="display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+              <span class="status-tag completed" style="background:rgba(139,92,246,0.15); color:#a78bfa;"><span class="status-dot" style="background:#a78bfa;"></span> In Review</span>
+              <a href="404.html" class="action-btn-sm" title="More"><i class="fa-solid fa-ellipsis"></i></a>
+            </div>
+            <h3 style="font-size:1.1rem; color:#f8fafc; font-weight:700; margin-bottom:6px;">StartupGen — SaaS Design System</h3>
+            <p style="font-size:0.82rem; color:#94a3b8; line-height:1.5; margin-bottom:16px;">
+              Atomic UI component library in Figma, coded React tokens, documentation, and accessible contrast matrix.
+            </p>
+          </div>
+          <div>
+            <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom:6px;">
+              <span style="color:#64748b;">Progress</span>
+              <span style="font-weight:700; color:#a78bfa;">95%</span>
+            </div>
+            <div class="progress-bar-wrap" style="margin-bottom:16px;">
+              <div class="progress-fill purple" style="width:95%;"></div>
+            </div>
+            <div style="display:flex; align-items:center; justify-content:space-between; border-top:1px solid rgba(255,255,255,0.06); padding-top:12px; font-size:0.8rem; color:#94a3b8;">
+              <span><i class="fa-regular fa-calendar"></i> Due: Nov 08</span>
+              <span style="font-weight:700; color:#f1f5f9;">₹3.1L</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="dash-pagination">
+        <span>Showing 6 of 48 active &amp; completed deliverables</span>
+        <div class="pagination-controls">
+          <a href="404.html" class="page-btn"><i class="fa-solid fa-chevron-left"></i></a>
+          <a href="dash-projects.html" class="page-btn active">1</a>
+          <a href="404.html" class="page-btn">2</a>
+          <a href="404.html" class="page-btn">3</a>
+          <a href="404.html" class="page-btn"><i class="fa-solid fa-chevron-right"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="js/dashUtils.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      dashInit('dash-projects.html');
+
+      // Filter tabs
+      const filterPills = document.querySelectorAll('#project-filters .dash-tab-pill');
+      const cards = document.querySelectorAll('#projects-grid .project-card');
+
+      filterPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          filterPills.forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+          const status = pill.getAttribute('data-status');
+
+          cards.forEach(card => {
+            if (status === 'all' || card.getAttribute('data-status') === status) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Quick Search
+      const searchInput = document.getElementById('project-search');
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          const val = e.target.value.toLowerCase();
+          cards.forEach(card => {
+            const text = card.textContent.toLowerCase();
+            card.style.display = text.includes(val) ? 'flex' : 'none';
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>
+

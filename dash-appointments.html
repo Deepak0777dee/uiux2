@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Appointments — STACKLY Dashboard</title>
+  <meta name="description" content="Manage appointments, consultations, and client bookings." />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body class="dashboard-body">
+
+  <div class="dash-overlay" id="dash-overlay"></div>
+
+  <!-- SIDEBAR -->
+  <aside class="dash-sidebar" id="dash-sidebar">
+    <div class="sidebar-header">
+      <a href="index.html" class="sidebar-logo">
+        <img src="images/logo-stackly.webp" alt="STACKLY" class="sidebar-logo-img" />
+      </a>
+      <button class="sidebar-collapse-btn" id="sidebar-close" title="Close sidebar">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <nav class="sidebar-nav">
+      <span class="sidebar-section-label">Main</span>
+      <a href="dashboard.html" class="sidebar-link">
+        <i class="fa-solid fa-grid-2"></i>
+        <span>Dashboard</span>
+      </a>
+      <a href="dash-appointments.html" class="sidebar-link active">
+        <i class="fa-solid fa-calendar-check"></i>
+        <span>Appointments</span>
+        <span class="sidebar-badge">5</span>
+      </a>
+      <a href="dash-clients.html" class="sidebar-link">
+        <i class="fa-solid fa-users"></i>
+        <span>Clients</span>
+      </a>
+      <a href="dash-projects.html" class="sidebar-link">
+        <i class="fa-solid fa-briefcase"></i>
+        <span>Projects</span>
+        <span class="sidebar-badge sidebar-badge-blue">3</span>
+      </a>
+      <a href="dash-billing.html" class="sidebar-link">
+        <i class="fa-solid fa-file-invoice-dollar"></i>
+        <span>Billing & Invoices</span>
+      </a>
+
+      <span class="sidebar-section-label">Insights</span>
+      <a href="dash-analytics.html" class="sidebar-link">
+        <i class="fa-solid fa-chart-mixed"></i>
+        <span>Analytics</span>
+      </a>
+      <a href="dash-reports.html" class="sidebar-link">
+        <i class="fa-solid fa-clipboard-list"></i>
+        <span>Reports</span>
+      </a>
+
+      <span class="sidebar-section-label">General</span>
+      <a href="dash-messages.html" class="sidebar-link">
+        <i class="fa-solid fa-envelope"></i>
+        <span>Messages</span>
+        <span class="sidebar-badge">2</span>
+      </a>
+      <a href="dash-settings.html" class="sidebar-link">
+        <i class="fa-solid fa-gear"></i>
+        <span>Settings</span>
+      </a>
+      <a href="404.html" class="sidebar-link">
+        <i class="fa-solid fa-circle-question"></i>
+        <span>Help & Support</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-avatar" id="sidebar-avatar-initials">DU</div>
+      <div class="sidebar-user-info">
+        <div class="sidebar-user-name" id="sidebar-user-name">Demo User</div>
+        <div class="sidebar-user-role" id="sidebar-user-role">User</div>
+      </div>
+      <button class="sidebar-logout-btn" id="btn-logout" title="Logout">
+        <i class="fa-solid fa-right-from-bracket"></i>
+      </button>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="dash-main">
+    <header class="dash-topbar">
+      <div class="topbar-left">
+        <button class="mobile-menu-btn" id="mobile-menu-btn" title="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="topbar-greeting">
+          Appointments &amp; Schedule
+        </div>
+      </div>
+
+      <div class="topbar-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search appointments or patients..." id="search-input" />
+      </div>
+
+      <div class="topbar-right">
+        <button class="topbar-icon-btn" title="Notifications" onclick="window.location.href='dash-messages.html'">
+          <i class="fa-regular fa-bell"></i>
+          <span class="notif-dot"></span>
+        </button>
+        <button class="topbar-icon-btn" title="Messages" onclick="window.location.href='dash-messages.html'">
+          <i class="fa-regular fa-message"></i>
+        </button>
+        <button class="topbar-icon-btn" title="Settings" onclick="window.location.href='dash-settings.html'">
+          <i class="fa-solid fa-gear"></i>
+        </button>
+      </div>
+    </header>
+
+    <div class="dash-content">
+      <!-- Page Header -->
+      <div class="dash-page-header">
+        <div>
+          <h1 class="dash-page-title">Appointments Management</h1>
+          <p class="dash-page-subtitle">Track, reschedule, and organize upcoming client sessions &amp; clinical consultations.</p>
+        </div>
+        <div class="dash-header-actions">
+          <a href="404.html" class="btn-dash-secondary"><i class="fa-solid fa-calendar-days"></i> Calendar View</a>
+          <a href="404.html" class="btn-dash-primary"><i class="fa-solid fa-plus"></i> New Appointment</a>
+        </div>
+      </div>
+
+      <!-- Stat Cards -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <div class="stat-icon-box blue"><i class="fa-solid fa-calendar-day"></i></div>
+            <span class="stat-trend up"><i class="fa-solid fa-arrow-up"></i> Today</span>
+          </div>
+          <div class="stat-value">14</div>
+          <div class="stat-label">Scheduled Today</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <div class="stat-icon-box green"><i class="fa-solid fa-circle-check"></i></div>
+            <span class="stat-trend up">78%</span>
+          </div>
+          <div class="stat-value">10</div>
+          <div class="stat-label">Confirmed Slots</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <div class="stat-icon-box amber"><i class="fa-solid fa-clock"></i></div>
+            <span class="stat-trend down">Action Req.</span>
+          </div>
+          <div class="stat-value">3</div>
+          <div class="stat-label">Pending Approval</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <div class="stat-icon-box purple"><i class="fa-solid fa-user-clock"></i></div>
+            <span class="stat-trend up">Optimal</span>
+          </div>
+          <div class="stat-value">88%</div>
+          <div class="stat-label">Chair / Slot Utilization</div>
+        </div>
+      </div>
+
+      <!-- Filter Bar -->
+      <div class="dash-filter-bar">
+        <div class="filter-group-left">
+          <div class="dash-tab-pills" id="status-filters">
+            <button class="dash-tab-pill active" data-status="all">All (14)</button>
+            <button class="dash-tab-pill" data-status="confirmed">Confirmed (10)</button>
+            <button class="dash-tab-pill" data-status="pending">Pending (3)</button>
+            <button class="dash-tab-pill" data-status="cancelled">Cancelled (1)</button>
+          </div>
+          <select class="filter-select" onchange="window.location.href='404.html'">
+            <option>All Consultants</option>
+            <option>Dr. Sarah K. (Lead)</option>
+            <option>Marcus T. (UX Lead)</option>
+            <option>Emily R. (Growth)</option>
+            <option>David L. (Tech)</option>
+          </select>
+        </div>
+        <div class="filter-group-right">
+          <a href="404.html" class="btn-dash-secondary"><i class="fa-solid fa-filter"></i> More Filters</a>
+          <a href="404.html" class="btn-dash-secondary"><i class="fa-solid fa-file-export"></i> Export CSV</a>
+        </div>
+      </div>
+
+      <!-- Appointments Table Card -->
+      <div class="dash-card">
+        <div class="dash-card-header">
+          <div>
+            <div class="dash-card-title">Appointment Roster</div>
+            <div class="dash-card-subtitle">Real-time schedule for today and upcoming dates</div>
+          </div>
+        </div>
+
+        <div class="appointments-table-wrap">
+          <table class="appointments-table" id="appointments-table">
+            <thead>
+              <tr>
+                <th>Patient / Client</th>
+                <th>Procedure / Service</th>
+                <th>Time Slot</th>
+                <th>Status</th>
+                <th>Assigned Specialist</th>
+                <th>Room / Mode</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-status="confirmed">
+                <td>
+                  <div class="appt-client-cell">
+                    <div class="appt-avatar" style="background:linear-gradient(135deg,#3b82f6,#06b6d4);">RS</div>
+                    <div>
+                      <div class="appt-client-name">Rahul Srinivasan</div>
+                      <div class="appt-client-email">rahul@techvista.com • +91 98401 23456</div>
+                    </div>
+                  </div>
+                </td>
+                <td><span style="font-weight:600; color:#f1f5f9;">Brand Strategy &amp; Identity</span></td>
+                <td>Nov 5, 2026 — 10:00 AM</td>
+                <td><span class="status-tag confirmed"><span class="status-dot green"></span> Confirmed</span></td>
+                <td>Dr. Sarah K.</td>
+                <td>Studio A (In-Person)</td>
+                <td>
+                  <a href="404.html" class="action-btn-sm" title="Options"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+                </td>
+              </tr>
+              <tr data-status="pending">
+                <td>
+                  <div class="appt-client-cell">
+                    <div class="appt-avatar" style="background:linear-gradient(135deg,#8b5cf6,#ec4899);">DM</div>
+                    <div>
+                      <div class="appt-client-name">Deepika Menon</div>
+                      <div class="appt-client-email">deepika@startupgen.in • +91 97102 34567</div>
+                    </div>
+                  </div>
+                </td>
+                <td><span style="font-weight:600; color:#f1f5f9;">UI/UX System Diagnostic</span></td>
+                <td>Nov 5, 2026 — 11:30 AM</td>
+                <td><span class="status-tag pending"><span class="status-dot amber"></span> Pending</span></td>
+                <td>Marcus T.</td>
+                <td>Virtual (Google Meet)</td>
+                <td>
+                  <a href="404.html" class="action-btn-sm" title="Options"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+                </td>
+              </tr>
+              <tr data-status="confirmed">
+                <td>
+                  <div class="appt-client-cell">
+                    <div class="appt-avatar" style="background:linear-gradient(135deg,#10b981,#059669);">AV</div>
+                    <div>
+                      <div class="appt-client-name">Arun Vijay</div>
+                      <div class="appt-client-email">arun@greenlabs.co • +91 98840 56789</div>
+                    </div>
+                  </div>
+                </td>
+                <td><span style="font-weight:600; color:#f1f5f9;">Growth Strategy Roadmap</span></td>
+                <td>Nov 5, 2026 — 02:00 PM</td>
+                <td><span class="status-tag confirmed"><span class="status-dot green"></span> Confirmed</span></td>
+                <td>Emily R.</td>
+                <td>Studio B (In-Person)</td>
+                <td>
+                  <a href="404.html" class="action-btn-sm" title="Options"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+                </td>
+              </tr>
+              <tr data-status="pending">
+                <td>
+                  <div class="appt-client-cell">
+                    <div class="appt-avatar" style="background:linear-gradient(135deg,#6366f1,#a855f7);">NK</div>
+                    <div>
+                      <div class="appt-client-name">Nithya Krishnan</div>
+                      <div class="appt-client-email">nithya@medicare.org • +91 94441 67890</div>
+                    </div>
+                  </div>
+                </td>
+                <td><span style="font-weight:600; color:#f1f5f9;">Design Sprint Review</span></td>
+                <td>Nov 5, 2026 — 03:30 PM</td>
+                <td><span class="status-tag pending"><span class="status-dot amber"></span> Pending</span></td>
+                <td>Marcus T.</td>
+                <td>Virtual (Zoom)</td>
+                <td>
+                  <a href="404.html" class="action-btn-sm" title="Options"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+                </td>
+              </tr>
+              <tr data-status="cancelled">
+                <td>
+                  <div class="appt-client-cell">
+                    <div class="appt-avatar" style="background:linear-gradient(135deg,#ef4444,#dc2626);">KP</div>
+                    <div>
+                      <div class="appt-client-name">Kavitha Prasad</div>
+                      <div class="appt-client-email">kavitha@buildnext.io • +91 91760 12345</div>
+                    </div>
+                  </div>
+                </td>
+                <td><span style="font-weight:600; color:#f1f5f9;">Financial Feasibility Audit</span></td>
+                <td>Nov 6, 2026 — 09:30 AM</td>
+                <td><span class="status-tag cancelled"><span class="status-dot red"></span> Cancelled</span></td>
+                <td>David L.</td>
+                <td>Studio C</td>
+                <td>
+                  <a href="404.html" class="action-btn-sm" title="Options"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+                </td>
+              </tr>
+              <tr data-status="confirmed">
+                <td>
+                  <div class="appt-client-cell">
+                    <div class="appt-avatar" style="background:linear-gradient(135deg,#06b6d4,#2563eb);">NR</div>
+                    <div>
+                      <div class="appt-client-name">Naveen Reddy</div>
+                      <div class="appt-client-email">naveen@cloudsphere.com • +91 98410 98765</div>
+                    </div>
+                  </div>
+                </td>
+                <td><span style="font-weight:600; color:#f1f5f9;">SEO Architecture Audit</span></td>
+                <td>Nov 6, 2026 — 11:00 AM</td>
+                <td><span class="status-tag confirmed"><span class="status-dot green"></span> Confirmed</span></td>
+                <td>Dr. Sarah K.</td>
+                <td>Virtual (Google Meet)</td>
+                <td>
+                  <a href="404.html" class="action-btn-sm" title="Options"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+                </td>
+              </tr>
+              <tr data-status="confirmed">
+                <td>
+                  <div class="appt-client-cell">
+                    <div class="appt-avatar" style="background:linear-gradient(135deg,#14b8a6,#0d9488);">AB</div>
+                    <div>
+                      <div class="appt-client-name">Ananya Balan</div>
+                      <div class="appt-client-email">ananya@apexhealth.in • +91 99401 23456</div>
+                    </div>
+                  </div>
+                </td>
+                <td><span style="font-weight:600; color:#f1f5f9;">Clinical Workflow Review</span></td>
+                <td>Nov 6, 2026 — 03:00 PM</td>
+                <td><span class="status-tag confirmed"><span class="status-dot green"></span> Confirmed</span></td>
+                <td>Emily R.</td>
+                <td>Studio A</td>
+                <td>
+                  <a href="404.html" class="action-btn-sm" title="Options"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="dash-pagination">
+          <span>Showing 1 to 7 of 14 appointments</span>
+          <div class="pagination-controls">
+            <a href="404.html" class="page-btn"><i class="fa-solid fa-chevron-left"></i></a>
+            <a href="dash-appointments.html" class="page-btn active">1</a>
+            <a href="404.html" class="page-btn">2</a>
+            <a href="404.html" class="page-btn"><i class="fa-solid fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="js/dashUtils.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      dashInit('dash-appointments.html');
+
+      // Status Filter tabs
+      const filterPills = document.querySelectorAll('#status-filters .dash-tab-pill');
+      const tableRows = document.querySelectorAll('#appointments-table tbody tr');
+
+      filterPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          filterPills.forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+          const status = pill.getAttribute('data-status');
+
+          tableRows.forEach(row => {
+            if (status === 'all' || row.getAttribute('data-status') === status) {
+              row.style.display = '';
+            } else {
+              row.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Quick Search Filter
+      const searchInput = document.getElementById('search-input');
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          const val = e.target.value.toLowerCase();
+          tableRows.forEach(row => {
+            const text = row.textContent.toLowerCase();
+            row.style.display = text.includes(val) ? '' : 'none';
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>
+

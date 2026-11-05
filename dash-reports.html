@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reports &amp; Audits — STACKLY Dashboard</title>
+  <meta name="description" content="Generate and download audit reports, clinical case analyses, financial ledgers, and operational summaries." />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body class="dashboard-body">
+
+  <div class="dash-overlay" id="dash-overlay"></div>
+
+  <!-- SIDEBAR -->
+  <aside class="dash-sidebar" id="dash-sidebar">
+    <div class="sidebar-header">
+      <a href="index.html" class="sidebar-logo">
+        <img src="images/logo-stackly.webp" alt="STACKLY" class="sidebar-logo-img" />
+      </a>
+      <button class="sidebar-collapse-btn" id="sidebar-close" title="Close sidebar">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <nav class="sidebar-nav">
+      <span class="sidebar-section-label">Main</span>
+      <a href="dashboard.html" class="sidebar-link">
+        <i class="fa-solid fa-grid-2"></i>
+        <span>Dashboard</span>
+      </a>
+      <a href="dash-appointments.html" class="sidebar-link">
+        <i class="fa-solid fa-calendar-check"></i>
+        <span>Appointments</span>
+        <span class="sidebar-badge">5</span>
+      </a>
+      <a href="dash-clients.html" class="sidebar-link">
+        <i class="fa-solid fa-users"></i>
+        <span>Clients</span>
+      </a>
+      <a href="dash-projects.html" class="sidebar-link">
+        <i class="fa-solid fa-briefcase"></i>
+        <span>Projects</span>
+        <span class="sidebar-badge sidebar-badge-blue">3</span>
+      </a>
+      <a href="dash-billing.html" class="sidebar-link">
+        <i class="fa-solid fa-file-invoice-dollar"></i>
+        <span>Billing & Invoices</span>
+      </a>
+
+      <span class="sidebar-section-label">Insights</span>
+      <a href="dash-analytics.html" class="sidebar-link">
+        <i class="fa-solid fa-chart-mixed"></i>
+        <span>Analytics</span>
+      </a>
+      <a href="dash-reports.html" class="sidebar-link active">
+        <i class="fa-solid fa-clipboard-list"></i>
+        <span>Reports</span>
+      </a>
+
+      <span class="sidebar-section-label">General</span>
+      <a href="dash-messages.html" class="sidebar-link">
+        <i class="fa-solid fa-envelope"></i>
+        <span>Messages</span>
+        <span class="sidebar-badge">2</span>
+      </a>
+      <a href="dash-settings.html" class="sidebar-link">
+        <i class="fa-solid fa-gear"></i>
+        <span>Settings</span>
+      </a>
+      <a href="404.html" class="sidebar-link">
+        <i class="fa-solid fa-circle-question"></i>
+        <span>Help & Support</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-avatar" id="sidebar-avatar-initials">DU</div>
+      <div class="sidebar-user-info">
+        <div class="sidebar-user-name" id="sidebar-user-name">Demo User</div>
+        <div class="sidebar-user-role" id="sidebar-user-role">User</div>
+      </div>
+      <button class="sidebar-logout-btn" id="btn-logout" title="Logout">
+        <i class="fa-solid fa-right-from-bracket"></i>
+      </button>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="dash-main">
+    <header class="dash-topbar">
+      <div class="topbar-left">
+        <button class="mobile-menu-btn" id="mobile-menu-btn" title="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="topbar-greeting">
+          Reports &amp; Documentation
+        </div>
+      </div>
+
+      <div class="topbar-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search reports by title or tag..." id="reports-search" />
+      </div>
+
+      <div class="topbar-right">
+        <button class="topbar-icon-btn" title="Notifications" onclick="window.location.href='dash-messages.html'">
+          <i class="fa-regular fa-bell"></i>
+          <span class="notif-dot"></span>
+        </button>
+        <button class="topbar-icon-btn" title="Messages" onclick="window.location.href='dash-messages.html'">
+          <i class="fa-regular fa-message"></i>
+        </button>
+        <button class="topbar-icon-btn" title="Settings" onclick="window.location.href='dash-settings.html'">
+          <i class="fa-solid fa-gear"></i>
+        </button>
+      </div>
+    </header>
+
+    <div class="dash-content">
+      <!-- Page Header -->
+      <div class="dash-page-header">
+        <div>
+          <h1 class="dash-page-title">Executive Reports &amp; Exports</h1>
+          <p class="dash-page-subtitle">Download validated financial audits, patient throughput records, and campaign ROI summaries.</p>
+        </div>
+        <div class="dash-header-actions">
+          <a href="404.html" class="btn-dash-secondary"><i class="fa-solid fa-clock-rotate-left"></i> Scheduled Jobs</a>
+          <a href="404.html" class="btn-dash-primary"><i class="fa-solid fa-plus"></i> New Custom Report</a>
+        </div>
+      </div>
+
+      <!-- Quick KPI Strip -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <div class="stat-icon-box blue"><i class="fa-solid fa-file-lines"></i></div>
+            <span class="stat-trend up">Live</span>
+          </div>
+          <div class="stat-value">24</div>
+          <div class="stat-label">Generated Reports</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <div class="stat-icon-box green"><i class="fa-solid fa-file-check"></i></div>
+            <span class="stat-trend up">Audited</span>
+          </div>
+          <div class="stat-value">18</div>
+          <div class="stat-label">Verified Compliance</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <div class="stat-icon-box amber"><i class="fa-solid fa-clock"></i></div>
+            <span class="stat-trend down">Recurring</span>
+          </div>
+          <div class="stat-value">4</div>
+          <div class="stat-label">Weekly Automations</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <div class="stat-icon-box purple"><i class="fa-solid fa-hard-drive"></i></div>
+            <span class="stat-trend up">Encrypted</span>
+          </div>
+          <div class="stat-value">1.2 GB</div>
+          <div class="stat-label">Archived Cloud Vault</div>
+        </div>
+      </div>
+
+      <!-- Filter Bar -->
+      <div class="dash-filter-bar">
+        <div class="filter-group-left">
+          <div class="dash-tab-pills" id="report-filters">
+            <button class="dash-tab-pill active" data-type="all">All Reports (24)</button>
+            <button class="dash-tab-pill" data-type="financial">Financial (8)</button>
+            <button class="dash-tab-pill" data-type="operations">Clinical &amp; Operations (10)</button>
+            <button class="dash-tab-pill" data-type="marketing">Growth &amp; SEO (6)</button>
+          </div>
+          <select class="filter-select" onchange="window.location.href='404.html'">
+            <option>All File Formats</option>
+            <option>PDF Document</option>
+            <option>XLSX Spreadsheet</option>
+            <option>CSV Raw Data</option>
+          </select>
+        </div>
+        <div class="filter-group-right">
+          <a href="404.html" class="btn-dash-secondary"><i class="fa-solid fa-filter"></i> Date Range</a>
+        </div>
+      </div>
+
+      <!-- Reports List Table -->
+      <div class="dash-card">
+        <div class="appointments-table-wrap">
+          <table class="appointments-table" id="reports-table">
+            <thead>
+              <tr>
+                <th>Report Title</th>
+                <th>Category</th>
+                <th>Generated Date</th>
+                <th>File Size</th>
+                <th>Format</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-type="financial">
+                <td>
+                  <div class="appt-client-cell">
+                    <div class="appt-avatar" style="background:#2563eb;"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                    <div>
+                      <div class="appt-client-name">Monthly Revenue &amp; Tax Audit — Oct 2026</div>
+                      <div class="appt-client-email">Audited by CFO Office • Includes GST Reconciliation</div>
+                    </div>
+                  </div>
+                </td>
+                <td>Financial</td>
+                <td>Nov 1, 2026</td>
+                <td>2.4 MB</td>
+                <td><span style="font-weight:700; color:#ef4444;"><i class="fa-solid fa-file-pdf"></i> PDF</span></td>
+                <td><span class="status-tag confirmed"><span class="status-dot green"></span> Ready</span></td>
+                <td>
+                  <div style="display:flex; gap:6px;">
+                    <a href="404.html" class="action-btn-sm" title="Download"><i class="fa-solid fa-download"></i></a>
+                    <a href="404.html" class="action-btn-sm" title="Share"><i class="fa-solid fa-share-nodes"></i></a>
+                  </div>
+                </td>
+              </tr>
+              <tr data-type="operations">
+                <td>
+                  <div class="appt-client-cell">
+                    <div class="appt-avatar" style="background:#10b981;"><i class="fa-solid fa-user-doctor"></i></div>
+                    <div>
+                      <div class="appt-client-name">Patient Throughput &amp; Chair Efficiency Report</div>
+                      <div class="appt-client-email">Salem Clinic Operations • 88% Chair Utilization</div>
+                    </div>
+                  </div>
+                </td>
+                <td>Operations</td>
+                <td>Nov 3, 2026</td>
+                <td>4.8 MB</td>
+                <td><span style="font-weight:700; color:#10b981;"><i class="fa-solid fa-file-excel"></i> XLSX</span></td>
+                <td><span class="status-tag confirmed"><span class="status-dot green"></span> Ready</span></td>
+                <td>
+                  <div style="display:flex; gap:6px;">
+                    <a href="404.html" class="action-btn-sm" title="Download"><i class="fa-solid fa-download"></i></a>
+                    <a href="404.html" class="action-btn-sm" title="Share"><i class="fa-solid fa-share-nodes"></i></a>
+                  </div>
+                </td>
+              </tr>
+              <tr data-type="marketing">
+                <td>
+                  <div class="appt-client-cell">
+                    <div class="appt-avatar" style="background:#8b5cf6;"><i class="fa-solid fa-chart-pie"></i></div>
+                    <div>
+                      <div class="appt-client-name">SEO Conversion &amp; Semantic Keyword Benchmark</div>
+                      <div class="appt-client-email">Quarterly Organic Inbound Growth Telemetry</div>
+                    </div>
+                  </div>
+                </td>
+                <td>Growth &amp; SEO</td>
+                <td>Nov 2, 2026</td>
+                <td>1.6 MB</td>
+                <td><span style="font-weight:700; color:#ef4444;"><i class="fa-solid fa-file-pdf"></i> PDF</span></td>
+                <td><span class="status-tag confirmed"><span class="status-dot green"></span> Ready</span></td>
+                <td>
+                  <div style="display:flex; gap:6px;">
+                    <a href="404.html" class="action-btn-sm" title="Download"><i class="fa-solid fa-download"></i></a>
+                    <a href="404.html" class="action-btn-sm" title="Share"><i class="fa-solid fa-share-nodes"></i></a>
+                  </div>
+                </td>
+              </tr>
+              <tr data-type="operations">
+                <td>
+                  <div class="appt-client-cell">
+                    <div class="appt-avatar" style="background:#f59e0b;"><i class="fa-solid fa-comments"></i></div>
+                    <div>
+                      <div class="appt-client-name">Patient Net Promoter Score (NPS) &amp; Survey Insights</div>
+                      <div class="appt-client-email">Based on 1,420 Verified Patient Feedback Responses</div>
+                    </div>
+                  </div>
+                </td>
+                <td>Operations</td>
+                <td>Oct 29, 2026</td>
+                <td>3.1 MB</td>
+                <td><span style="font-weight:700; color:#ef4444;"><i class="fa-solid fa-file-pdf"></i> PDF</span></td>
+                <td><span class="status-tag confirmed"><span class="status-dot green"></span> Ready</span></td>
+                <td>
+                  <div style="display:flex; gap:6px;">
+                    <a href="404.html" class="action-btn-sm" title="Download"><i class="fa-solid fa-download"></i></a>
+                    <a href="404.html" class="action-btn-sm" title="Share"><i class="fa-solid fa-share-nodes"></i></a>
+                  </div>
+                </td>
+              </tr>
+              <tr data-type="financial">
+                <td>
+                  <div class="appt-client-cell">
+                    <div class="appt-avatar" style="background:#06b6d4;"><i class="fa-solid fa-building-columns"></i></div>
+                    <div>
+                      <div class="appt-client-name">Quarterly Vendor &amp; Lab Equipment Expenditure</div>
+                      <div class="appt-client-email">Procurement, Hardware, &amp; Cloud Infrastructure Costs</div>
+                    </div>
+                  </div>
+                </td>
+                <td>Financial</td>
+                <td>Oct 25, 2026</td>
+                <td>890 KB</td>
+                <td><span style="font-weight:700; color:#06b6d4;"><i class="fa-solid fa-file-csv"></i> CSV</span></td>
+                <td><span class="status-tag confirmed"><span class="status-dot green"></span> Ready</span></td>
+                <td>
+                  <div style="display:flex; gap:6px;">
+                    <a href="404.html" class="action-btn-sm" title="Download"><i class="fa-solid fa-download"></i></a>
+                    <a href="404.html" class="action-btn-sm" title="Share"><i class="fa-solid fa-share-nodes"></i></a>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="dash-pagination">
+          <span>Showing 1 to 5 of 24 archived reports</span>
+          <div class="pagination-controls">
+            <a href="404.html" class="page-btn"><i class="fa-solid fa-chevron-left"></i></a>
+            <a href="dash-reports.html" class="page-btn active">1</a>
+            <a href="404.html" class="page-btn">2</a>
+            <a href="404.html" class="page-btn"><i class="fa-solid fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="js/dashUtils.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      dashInit('dash-reports.html');
+
+      // Filter tabs
+      const filterPills = document.querySelectorAll('#report-filters .dash-tab-pill');
+      const tableRows = document.querySelectorAll('#reports-table tbody tr');
+
+      filterPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          filterPills.forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+          const type = pill.getAttribute('data-type');
+
+          tableRows.forEach(row => {
+            if (type === 'all' || row.getAttribute('data-type') === type) {
+              row.style.display = '';
+            } else {
+              row.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Quick Search
+      const searchInput = document.getElementById('reports-search');
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          const val = e.target.value.toLowerCase();
+          tableRows.forEach(row => {
+            const text = row.textContent.toLowerCase();
+            row.style.display = text.includes(val) ? '' : 'none';
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>
+

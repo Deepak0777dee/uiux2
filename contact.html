@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us — STACKLY | Salem Branch &amp; Corporate Office</title>
+  <meta name="description" content="Get in touch with the STACKLY team. Visit our Salem branch headquarters at MMR Complex, Chinna Thirupathi, Salem, Tamil Nadu, or send us a message to discuss your next project." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/contact.css" />
+</head>
+<body class="contact-body">
+
+  <!-- ==========================================
+       HEADER
+       ========================================== -->
+  <header class="header" id="header">
+    <div class="container">
+      <a href="index.html" class="logo" id="logo">
+        <img src="images/logo-stackly.webp" alt="STACKLY" class="site-logo" />
+      </a>
+
+      <nav class="nav-menu" id="nav-menu">
+        <a href="index.html" id="nav-home">Home</a>
+        <a href="about.html" id="nav-about">About Us</a>
+        <a href="services.html" id="nav-services">Services</a>
+        <a href="career.html" id="nav-career">Career</a>
+        <a href="blogs.html" id="nav-blogs">Blogs</a>
+        <a href="contact.html" class="active" id="nav-contact">Contact Us</a>
+      </nav>
+
+      <a href="login.html" class="btn-cta" id="btn-get-started">GET STARTED</a>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav-overlay" id="mobile-overlay"></div>
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="services.html">Services</a>
+    <a href="career.html">Career</a>
+    <a href="blogs.html">Blogs</a>
+    <a href="contact.html" class="active">Contact Us</a>
+    <a href="login.html" class="btn-cta">GET STARTED</a>
+  </nav>
+
+  <!-- ==========================================
+       1. HERO SECTION
+       ========================================== -->
+  <section class="contact-hero" id="contact-hero">
+    <div class="container">
+      <div class="contact-hero-grid">
+        
+        <!-- Left: Dark Card with Abstract Wireframe Circuit Lines -->
+        <div class="contact-hero-card reveal-left">
+          <svg class="contact-hero-wireframe" viewBox="0 0 620 380" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path d="M 40 30 L 150 30 A 18 18 0 0 1 168 48 L 168 150 A 18 18 0 0 0 186 168 L 380 168 A 18 18 0 0 1 398 186 L 398 320" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1.5" />
+            <path d="M 20 90 L 80 90 A 18 18 0 0 1 98 108 L 98 240 A 18 18 0 0 0 116 258 L 240 258 A 18 18 0 0 1 258 276 L 258 370" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1.5" />
+            <path d="M 280 20 L 280 110 A 18 18 0 0 0 298 128 L 470 128 A 18 18 0 0 1 488 146 L 488 280 A 18 18 0 0 0 506 298 L 600 298" stroke="rgba(255, 255, 255, 0.14)" stroke-width="1.5" />
+            <path d="M 330 200 L 440 200 A 18 18 0 0 1 458 218 L 458 340 A 18 18 0 0 0 476 358 L 540 358" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1.5" />
+            <path d="M 190 280 L 320 280 A 18 18 0 0 1 338 298 L 338 370" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1.5" />
+          </svg>
+
+          <div class="contact-hero-card-content">
+            <h1 class="contact-hero-title">Contact Us</h1>
+            <p class="contact-hero-desc">
+              Get in touch with our team to discuss how we can help transform your business.<br />
+              We're here to help.
+            </p>
+            <a href="#contact-form-section" class="contact-hero-btn" id="btn-hero-touch">Get In Touch Now</a>
+          </div>
+        </div>
+
+        <!-- Right: 3D Glossy Speech Bubbles -->
+        <div class="contact-hero-visual reveal-right">
+          <div class="contact-bubble-container">
+            <img src="images/contact-bubbles.jpg" alt="STACKLY Contact Chat 3D" class="contact-bubble-img" />
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       2. MAIN SECTION: SEND MESSAGE & CONTACT INFO
+       ========================================== -->
+  <section class="contact-main-section" id="contact-form-section">
+    <div class="container">
+      <div class="contact-layout-grid">
+        
+        <!-- Left: Send Us a Message Form -->
+        <div class="contact-form-wrapper reveal">
+          <h2 class="contact-section-heading">Send Us a Message</h2>
+
+          <form class="contact-form" id="contact-form" onsubmit="handleContactSubmit(event)">
+            <!-- First Name & Last Name -->
+            <div class="form-row-two">
+              <input type="text" class="contact-input" id="first-name" placeholder="First Name" required />
+              <input type="text" class="contact-input" id="last-name" placeholder="Last Name" required />
+            </div>
+
+            <!-- Email -->
+            <input type="email" class="contact-input" id="email" placeholder="Email" required />
+
+            <!-- Company -->
+            <input type="text" class="contact-input" id="company" placeholder="Company" />
+
+            <!-- Phone Number with Country Selector -->
+            <div class="phone-field-group">
+              <div class="phone-flag-selector" id="phone-flag-btn" title="Click to change country code" onclick="toggleCountryDropdown()">
+                <img src="https://flagcdn.com/w40/in.png" alt="India flag" id="current-flag" class="flag-icon" />
+                <span class="phone-code" id="current-code">+91</span>
+                <i class="fa-solid fa-chevron-down phone-chevron" id="country-chevron"></i>
+              </div>
+              <input type="tel" id="phone" placeholder="Phone Number" required />
+            </div>
+
+            <!-- Custom Country Selector Dropdown -->
+            <div id="country-picker-dropdown" style="display:none; background:#181920; border:1px solid #2d2f3b; border-radius:10px; padding:8px 0; margin-top:-8px; margin-bottom:8px; max-height:200px; overflow-y:auto; z-index:100; box-shadow:0 12px 32px rgba(0,0,0,0.6);">
+              <div onclick="selectCountry('in', '+91', 'India')" style="display:flex; align-items:center; gap:10px; padding:10px 16px; cursor:pointer; color:#e2e8f0; font-size:0.9rem;" onmouseover="this.style.background='#22242f'" onmouseout="this.style.background='transparent'">
+                <img src="https://flagcdn.com/w40/in.png" style="width:20px; height:14px; border-radius:2px;" alt="India" />
+                <span>India (+91)</span>
+              </div>
+              <div onclick="selectCountry('us', '+1', 'United States')" style="display:flex; align-items:center; gap:10px; padding:10px 16px; cursor:pointer; color:#e2e8f0; font-size:0.9rem;" onmouseover="this.style.background='#22242f'" onmouseout="this.style.background='transparent'">
+                <img src="https://flagcdn.com/w40/us.png" style="width:20px; height:14px; border-radius:2px;" alt="US" />
+                <span>United States (+1)</span>
+              </div>
+              <div onclick="selectCountry('gb', '+44', 'United Kingdom')" style="display:flex; align-items:center; gap:10px; padding:10px 16px; cursor:pointer; color:#e2e8f0; font-size:0.9rem;" onmouseover="this.style.background='#22242f'" onmouseout="this.style.background='transparent'">
+                <img src="https://flagcdn.com/w40/gb.png" style="width:20px; height:14px; border-radius:2px;" alt="UK" />
+                <span>United Kingdom (+44)</span>
+              </div>
+              <div onclick="selectCountry('ae', '+971', 'UAE')" style="display:flex; align-items:center; gap:10px; padding:10px 16px; cursor:pointer; color:#e2e8f0; font-size:0.9rem;" onmouseover="this.style.background='#22242f'" onmouseout="this.style.background='transparent'">
+                <img src="https://flagcdn.com/w40/ae.png" style="width:20px; height:14px; border-radius:2px;" alt="UAE" />
+                <span>UAE (+971)</span>
+              </div>
+              <div onclick="selectCountry('sg', '+65', 'Singapore')" style="display:flex; align-items:center; gap:10px; padding:10px 16px; cursor:pointer; color:#e2e8f0; font-size:0.9rem;" onmouseover="this.style.background='#22242f'" onmouseout="this.style.background='transparent'">
+                <img src="https://flagcdn.com/w40/sg.png" style="width:20px; height:14px; border-radius:2px;" alt="Singapore" />
+                <span>Singapore (+65)</span>
+              </div>
+              <div onclick="selectCountry('de', '+49', 'Germany')" style="display:flex; align-items:center; gap:10px; padding:10px 16px; cursor:pointer; color:#e2e8f0; font-size:0.9rem;" onmouseover="this.style.background='#22242f'" onmouseout="this.style.background='transparent'">
+                <img src="https://flagcdn.com/w40/de.png" style="width:20px; height:14px; border-radius:2px;" alt="Germany" />
+                <span>Germany (+49)</span>
+              </div>
+              <div onclick="selectCountry('au', '+61', 'Australia')" style="display:flex; align-items:center; gap:10px; padding:10px 16px; cursor:pointer; color:#e2e8f0; font-size:0.9rem;" onmouseover="this.style.background='#22242f'" onmouseout="this.style.background='transparent'">
+                <img src="https://flagcdn.com/w40/au.png" style="width:20px; height:14px; border-radius:2px;" alt="Australia" />
+                <span>Australia (+61)</span>
+              </div>
+            </div>
+
+            <!-- Message Textarea -->
+            <textarea class="contact-textarea" id="message" placeholder="Message" required></textarea>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn-form-submit" id="btn-submit-message">
+              Send <i class="fa-solid fa-paper-plane"></i>
+            </button>
+
+            <!-- Success Feedback Banner -->
+            <div class="form-success-banner" id="form-success-banner">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>Thank you! Your message has been sent successfully. Our Salem team will contact you shortly.</span>
+            </div>
+          </form>
+        </div>
+
+        <!-- Right: Contact Information & Free Consultation Card -->
+        <div class="contact-info-wrapper reveal">
+          <h2 class="contact-section-heading">Contact Information</h2>
+
+          <div class="contact-items-list">
+            
+            <!-- Email -->
+            <div class="contact-item-row">
+              <div class="contact-item-icon-box">
+                <i class="fa-regular fa-envelope"></i>
+              </div>
+              <div class="contact-item-content">
+                <span class="contact-item-label">Email</span>
+                <span class="contact-item-value">
+                  <a href="mailto:thestackly@gmail.com">thestackly@gmail.com</a>
+                  <br />
+                  <a href="mailto:info@thestackly.com">info@thestackly.com</a>
+                </span>
+              </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="contact-item-row">
+              <div class="contact-item-icon-box">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div class="contact-item-content">
+                <span class="contact-item-label">Phone</span>
+                <span class="contact-item-value">
+                  <a href="tel:+917010792745">+91 70107 92745</a>
+                </span>
+              </div>
+            </div>
+
+            <!-- Office / Salem Branch Address -->
+            <div class="contact-item-row">
+              <div class="contact-item-icon-box">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div class="contact-item-content">
+                <span class="contact-item-label">Office</span>
+                <div class="branch-badge">Salem Headquarters &amp; Tech Branch</div>
+                <p class="contact-item-value">
+                  MMR Complex, Chinna Thirupathi,<br />
+                  (Near Chinna Muniyappan Kovil),<br />
+                  Salem, Tamil Nadu – 636008, India
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Free 30-minute Consultation Card -->
+          <div class="consultation-cta-card">
+            <h4>Contact Information</h4>
+            <p>
+              Want to discuss your project in detail? Schedule a free 30-minute consultation with our team of experts. We'll help you understand how our solutions can benefit your business.
+            </p>
+            <a href="https://calendly.com" target="_blank" rel="noopener noreferrer" class="btn-book-meeting" id="btn-book-meeting">
+              Book a Meeting
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       3. PINNED MAP SECTION (Stackly Salem Branch)
+       ========================================== -->
+  <section class="contact-map-section" id="contact-map-section">
+    <div class="container">
+      <div class="map-container-outer reveal">
+        
+        <div class="map-iframe-holder">
+          <iframe 
+            src="https://maps.google.com/maps?q=MMR+Complex,+Chinna+Thirupathi,+Salem,+Tamil+Nadu+636008&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Stackly Salem Branch Location Map">
+          </iframe>
+        </div>
+
+        <!-- Floating Branch Location Pin Overlay Badge -->
+        <div class="map-location-badge">
+          <div class="map-badge-pin-icon">
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+          <div class="map-badge-info">
+            <h5>STACKLY Salem Branch</h5>
+            <p>MMR Complex, Chinna Thirupathi (Near Chinna Muniyappan Kovil), Salem - 636008</p>
+            <a href="https://www.google.com/maps/search/?api=1&query=Stackly+MMR+Complex+Chinna+Thirupathi+Salem+Tamil+Nadu+636008" target="_blank" rel="noopener noreferrer" class="map-badge-directions-link">
+              <span>Get Directions</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       4. UNIVERSAL FOOTER
+       ========================================== -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand Info -->
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-link">
+            <img src="images/logo-stackly.webp" alt="STACKLY" class="footer-logo-img" />
+          </a>
+          <p>Velit facilisi senectus velit elementum. Consequat vel arcu feugiat dui eu tempor pretium at porta. Dui pellentesque sagittis scelerisque amet vestibulum commodo quam natoque varius. Semper aliquam elementum posuere lacinia. Egestas dapi...</p>
+          <div class="footer-social">
+            <a href="contact.html" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="contact.html" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="contact.html" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Useful links -->
+        <div class="footer-col">
+          <h4>Useful links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blogs.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="contact.html">F.A.Q</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Services -->
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html">Marketing Strategy</a></li>
+            <li><a href="services.html">Financial management</a></li>
+            <li><a href="services.html">Business Strategy</a></li>
+            <li><a href="services.html">Sales and Marketing</a></li>
+            <li><a href="services.html">Human Resources</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Address, Email, Phone -->
+        <div class="footer-col footer-contact-block">
+          <div class="footer-contact-group">
+            <h5>Address</h5>
+            <p>MMR Complex,<br />Chinna Thirupathi,<br />Salem, TN 636008</p>
+          </div>
+          <div class="footer-contact-group">
+            <h5>Email</h5>
+            <a href="mailto:thestackly@gmail.com">thestackly@gmail.com</a>
+          </div>
+          <div class="footer-contact-group">
+            <h5>Phone</h5>
+            <a href="tel:+917010792745">+91 70107 92745</a>
+          </div>
+        </div>
+
+        <!-- Col 5: Newsletter -->
+        <div class="footer-col footer-newsletter">
+          <h4>Subscribe for our newsletter</h4>
+          <p>Consequat vel arcu feugiat dui eu tempor pretium</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to STACKLY newsletter!');">
+            <input type="email" class="newsletter-input" placeholder="Your email" required />
+            <button type="submit" class="newsletter-btn">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy;Copyright Stackly Business 2026.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script>
+    // Country Selector Functionality
+    function toggleCountryDropdown() {
+      const dropdown = document.getElementById('country-picker-dropdown');
+      const chevron = document.getElementById('country-chevron');
+      const isVisible = dropdown.style.display === 'block';
+      dropdown.style.display = isVisible ? 'none' : 'block';
+      chevron.style.transform = isVisible ? 'rotate(0deg)' : 'rotate(180deg)';
+    }
+
+    function selectCountry(code, prefix, name) {
+      document.getElementById('current-flag').src = `https://flagcdn.com/w40/${code}.png`;
+      document.getElementById('current-flag').alt = name;
+      document.getElementById('current-code').textContent = prefix;
+      document.getElementById('country-picker-dropdown').style.display = 'none';
+      document.getElementById('country-chevron').style.transform = 'rotate(0deg)';
+      document.getElementById('phone').focus();
+    }
+
+    // Close dropdown on outside click
+    document.addEventListener('click', function(e) {
+      const selector = document.getElementById('phone-flag-btn');
+      const dropdown = document.getElementById('country-picker-dropdown');
+      if (selector && dropdown && !selector.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.style.display = 'none';
+        const chevron = document.getElementById('country-chevron');
+        if (chevron) chevron.style.transform = 'rotate(0deg)';
+      }
+    });
+
+    // Handle Contact Form Submission
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const firstName = document.getElementById('first-name').value;
+      const lastName = document.getElementById('last-name').value;
+      const email = document.getElementById('email').value;
+      const code = document.getElementById('current-code').textContent;
+      const phone = document.getElementById('phone').value;
+      const banner = document.getElementById('form-success-banner');
+      const submitBtn = document.getElementById('btn-submit-message');
+
+      // Submit animation
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+
+      setTimeout(() => {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Send <i class="fa-solid fa-paper-plane"></i>';
+        banner.style.display = 'flex';
+        document.getElementById('contact-form').reset();
+        
+        // Hide success banner after 6 seconds
+        setTimeout(() => {
+          banner.style.display = 'none';
+        }, 6000);
+      }, 900);
+    }
+  </script>
+</body>
+</html>

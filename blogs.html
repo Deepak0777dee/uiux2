@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog &amp; Insights — STACKLY | Driving Business Success through Expertise &amp; Innovation</title>
+  <meta name="description" content="Thoughts on design, AI automation, and digital innovation from the STACKLY / Graphikrafts team." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/blog.css" />
+</head>
+<body>
+
+  <!-- ==========================================
+       HEADER
+       ========================================== -->
+  <header class="header" id="header">
+    <div class="container">
+      <a href="index.html" class="logo" id="logo">
+        <img src="images/logo-stackly.webp" alt="STACKLY" class="site-logo" />
+      </a>
+
+      <nav class="nav-menu" id="nav-menu">
+        <a href="index.html" id="nav-home">Home</a>
+        <a href="about.html" id="nav-about">About Us</a>
+        <a href="services.html" id="nav-services">Services</a>
+        <a href="career.html" id="nav-career">Career</a>
+        <a href="blogs.html" class="active" id="nav-blogs">Blogs</a>
+        <a href="contact.html" id="nav-contact">Contact Us</a>
+      </nav>
+
+      <a href="login.html" class="btn-cta" id="btn-get-started">GET STARTED</a>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Nav Overlay & Drawer -->
+  <div class="mobile-nav-overlay" id="mobile-overlay"></div>
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="services.html">Services</a>
+    <a href="career.html">Career</a>
+    <a href="blogs.html" class="active">Blogs</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="login.html" class="btn-cta">GET STARTED</a>
+  </nav>
+
+  <!-- ==========================================
+       1. HERO SECTION
+       ========================================== -->
+  <section class="blog-hero" id="blog-hero">
+    <div class="container">
+      <div class="blog-hero-content reveal">
+        <div class="blog-pill-badge">
+          <i class="fa-solid fa-arrow-trend-up"></i>
+          <span>Industry Insights &amp; Updates</span>
+        </div>
+        <h1 class="blog-hero-title">Blog &amp; Insights</h1>
+        <p class="blog-hero-desc">
+          Thoughts on design, AI automation, and digital innovation from the Graphikrafts team.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       2. FEATURED POST HERO CARD
+       ========================================== -->
+  <section class="featured-post-section" id="featured-post">
+    <div class="container">
+      <div class="featured-post-card reveal">
+        <div class="featured-post-img">
+          <img src="images/career-ai-letters.png" alt="AI Integration in Modern Web Design" loading="eager" />
+        </div>
+        <div class="featured-post-info">
+          <div class="featured-badge">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <span>Featured Post</span>
+          </div>
+          <h2 class="featured-post-title">
+            AI Integration in Modern Web Design: The Future is Now
+          </h2>
+          <p class="featured-post-excerpt">
+            Exploring how AI-powered automation, chatbots, and creative services are transforming digital experiences and revolutionizing customer engagement.
+          </p>
+          <div class="featured-post-meta">
+            <span><i class="fa-regular fa-calendar"></i> October 15, 2025</span>
+            <span><i class="fa-regular fa-clock"></i> 8 min read</span>
+            <span class="meta-category">AI &amp; Automation</span>
+          </div>
+          <a href="404.html" class="btn-read-article">
+            Read Article <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       3. MAIN BLOG CONTENT (SIDEBAR + CARDS)
+       ========================================== -->
+  <section class="blog-content-layout" id="blog-content">
+    <div class="container">
+      <div class="blog-grid-wrapper">
+
+        <!-- Sidebar: Categories -->
+        <aside class="blog-sidebar-box reveal-left">
+          <h3 class="blog-sidebar-title">Categories</h3>
+          <div class="sidebar-category-list" id="category-filter-list">
+            <button class="category-nav-item active" data-cat="all">
+              <span>All Posts</span>
+              <span class="cat-count">(28)</span>
+            </button>
+            <button class="category-nav-item" data-cat="ai">
+              <span>AI &amp; Automation</span>
+              <span class="cat-count">(12)</span>
+            </button>
+            <button class="category-nav-item" data-cat="ux">
+              <span>UX Design</span>
+              <span class="cat-count">(8)</span>
+            </button>
+            <button class="category-nav-item" data-cat="web">
+              <span>Web Development</span>
+              <span class="cat-count">(6)</span>
+            </button>
+            <button class="category-nav-item" data-cat="mobile">
+              <span>Mobile Design</span>
+              <span class="cat-count">(2)</span>
+            </button>
+          </div>
+        </aside>
+
+        <!-- 2-Column Articles Grid -->
+        <div class="blog-articles-grid" id="articles-container">
+
+          <!-- Card 1: AI Chatbots -->
+          <article class="blog-card reveal" data-category="ai">
+            <div class="blog-card-media">
+              <img src="images/career-robotic-hand.png" alt="Customer Support AI Chatbots" loading="lazy" />
+              <div class="floating-icon-badge purple" title="AI & Automation">
+                <i class="fa-solid fa-robot"></i>
+              </div>
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-card-category">AI &amp; Automation</span>
+              <h3 class="blog-card-title">Building 24/7 Customer Support with AI Chatbots</h3>
+              <p class="blog-card-desc">
+                How GPT-powered chatbots are transforming customer service across WhatsApp, Facebook, and web platforms.
+              </p>
+              <div class="blog-card-meta">
+                <span><i class="fa-regular fa-calendar"></i> October 10, 2025</span>
+                <span><i class="fa-regular fa-clock"></i> 6 min read</span>
+              </div>
+              <a href="404.html" class="blog-card-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+          <!-- Card 2: Research-Led UX -->
+          <article class="blog-card reveal" data-category="ux">
+            <div class="blog-card-media">
+              <img src="images/career-monitor-emily.png" alt="Research-Led UX Heatmaps" loading="lazy" />
+              <div class="floating-icon-badge blue" title="UX Design">
+                <i class="fa-solid fa-compass-drafting"></i>
+              </div>
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-card-category">UX Design</span>
+              <h3 class="blog-card-title">Research-Led UX: Heatmaps &amp; Journey Mapping</h3>
+              <p class="blog-card-desc">
+                Data-driven design strategies that boost engagement and conversion rates through user insights.
+              </p>
+              <div class="blog-card-meta">
+                <span><i class="fa-regular fa-calendar"></i> October 5, 2025</span>
+                <span><i class="fa-regular fa-clock"></i> 7 min read</span>
+              </div>
+              <a href="404.html" class="blog-card-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+          <!-- Card 3: AI Product Photography -->
+          <article class="blog-card reveal" data-category="ai">
+            <div class="blog-card-media">
+              <img src="images/career-ai-letters.png" alt="AI-Enhanced Product Photography" loading="lazy" />
+              <div class="floating-icon-badge orange" title="AI Creative">
+                <i class="fa-solid fa-diagram-project"></i>
+              </div>
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-card-category">AI Creative</span>
+              <h3 class="blog-card-title">AI-Enhanced Product Photography for E-commerce</h3>
+              <p class="blog-card-desc">
+                Creating consistent, stylized product visuals at scale using AI-powered creative tools.
+              </p>
+              <div class="blog-card-meta">
+                <span><i class="fa-regular fa-calendar"></i> September 28, 2025</span>
+                <span><i class="fa-regular fa-clock"></i> 5 min read</span>
+              </div>
+              <a href="404.html" class="blog-card-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+          <!-- Card 4: Web Performance Optimization -->
+          <article class="blog-card reveal" data-category="web">
+            <div class="blog-card-media">
+              <img src="images/blog-man-laptop.png" alt="Web Performance Optimization Core Web Vitals" loading="lazy" />
+              <div class="floating-icon-badge green" title="Web Development">
+                <i class="fa-solid fa-bolt"></i>
+              </div>
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-card-category">Web Development</span>
+              <h3 class="blog-card-title">Web Performance Optimization: Core Web Vitals</h3>
+              <p class="blog-card-desc">
+                Practical techniques for lightning-fast load times and improved search rankings.
+              </p>
+              <div class="blog-card-meta">
+                <span><i class="fa-regular fa-calendar"></i> September 20, 2025</span>
+                <span><i class="fa-regular fa-clock"></i> 6 min read</span>
+              </div>
+              <a href="404.html" class="blog-card-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+          <!-- Card 5: Mobile App Design Systems in Figma -->
+          <article class="blog-card reveal" data-category="mobile">
+            <div class="blog-card-media">
+              <img src="images/blog-mobile-figma.png" alt="Mobile App Design Systems Figma" loading="lazy" />
+              <div class="floating-icon-badge blue" title="Mobile Design">
+                <i class="fa-solid fa-layer-group"></i>
+              </div>
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-card-category">Mobile Design</span>
+              <h3 class="blog-card-title">Mobile App Design Systems in Figma</h3>
+              <p class="blog-card-desc">
+                Building scalable iOS and Android design systems with interactive prototypes.
+              </p>
+              <div class="blog-card-meta">
+                <span><i class="fa-regular fa-calendar"></i> September 15, 2025</span>
+                <span><i class="fa-regular fa-clock"></i> 8 min read</span>
+              </div>
+              <a href="404.html" class="blog-card-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+          <!-- Card 6: Scalable Web Architecture -->
+          <article class="blog-card reveal" data-category="web">
+            <div class="blog-card-media">
+              <img src="images/career-book-marcus.png" alt="Scalable Web Architecture CMS Integration" loading="lazy" />
+              <div class="floating-icon-badge teal" title="Web Development">
+                <i class="fa-solid fa-code"></i>
+              </div>
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-card-category">Web Development</span>
+              <h3 class="blog-card-title">Scalable Web Architecture: CMS Integration</h3>
+              <p class="blog-card-desc">
+                Building flexible, growth-ready websites with modern content management systems.
+              </p>
+              <div class="blog-card-meta">
+                <span><i class="fa-regular fa-calendar"></i> September 8, 2025</span>
+                <span><i class="fa-regular fa-clock"></i> 7 min read</span>
+              </div>
+              <a href="404.html" class="blog-card-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       4. WHY OUR PROCESS WORKS
+       ========================================== -->
+  <section class="process-works-section" id="process-works">
+    <div class="container">
+      <div class="process-works-header reveal">
+        <h2 class="process-works-title">Why Our Process Works</h2>
+        <p class="process-works-subtitle">Benefits of working with GraphiKrafts</p>
+      </div>
+
+      <div class="process-grid">
+        <!-- Feature 1: Clear communication -->
+        <div class="process-card reveal">
+          <div class="process-icon-box">
+            <i class="fa-solid fa-bullseye"></i>
+          </div>
+          <h3 class="process-card-title">Clear communication at every stage</h3>
+          <p class="process-card-desc">Stay informed with regular updates and transparent discussions</p>
+        </div>
+
+        <!-- Feature 2: On-time delivery -->
+        <div class="process-card reveal">
+          <div class="process-icon-box">
+            <i class="fa-regular fa-clock"></i>
+          </div>
+          <h3 class="process-card-title">On-time delivery</h3>
+          <p class="process-card-desc">Structured timelines ensure your project launches when expected</p>
+        </div>
+
+        <!-- Feature 3: Scalable solutions -->
+        <div class="process-card reveal">
+          <div class="process-icon-box">
+            <i class="fa-solid fa-arrow-trend-up"></i>
+          </div>
+          <h3 class="process-card-title">Scalable solutions</h3>
+          <p class="process-card-desc">Built to grow with your business needs</p>
+        </div>
+
+        <!-- Feature 4: Quality assurance (Active highlight border as in UI) -->
+        <div class="process-card active-card reveal">
+          <div class="process-icon-box">
+            <i class="fa-solid fa-circle-check"></i>
+          </div>
+          <h3 class="process-card-title">Quality assurance throughout</h3>
+          <p class="process-card-desc">Rigorous testing at every phase ensures excellence</p>
+        </div>
+
+        <!-- Feature 5: Collaborative decision-making -->
+        <div class="process-card reveal">
+          <div class="process-icon-box">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+          </div>
+          <h3 class="process-card-title">Collaborative decision-making</h3>
+          <p class="process-card-desc">Your input shapes every milestone</p>
+        </div>
+
+        <!-- Feature 6: Post-launch support -->
+        <div class="process-card reveal">
+          <div class="process-icon-box">
+            <i class="fa-solid fa-circle-arrow-right"></i>
+          </div>
+          <h3 class="process-card-title">Post-launch support</h3>
+          <p class="process-card-desc">We are with you beyond deployment</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       5. TYPICAL PROJECT TIMELINE
+       ========================================== -->
+  <section class="timeline-section" id="timeline">
+    <div class="container">
+      <div class="timeline-header reveal">
+        <h2 class="timeline-title">Typical Project Timeline</h2>
+        <p class="timeline-subtitle">Most projects are completed in 8-16 weeks</p>
+      </div>
+
+      <div class="timeline-track">
+        <!-- Step 1: Discovery (Left) -->
+        <div class="timeline-step left reveal-left">
+          <div class="timeline-card">
+            <div class="timeline-duration">1-2 weeks</div>
+            <div class="timeline-step-name">Discovery</div>
+          </div>
+          <div class="timeline-node"></div>
+        </div>
+
+        <!-- Step 2: Design (Right) -->
+        <div class="timeline-step right reveal-right">
+          <div class="timeline-node"></div>
+          <div class="timeline-card">
+            <div class="timeline-duration">2-4 weeks</div>
+            <div class="timeline-step-name">Design</div>
+          </div>
+        </div>
+
+        <!-- Step 3: Develop (Left) -->
+        <div class="timeline-step left reveal-left">
+          <div class="timeline-card">
+            <div class="timeline-duration">4-8 weeks</div>
+            <div class="timeline-step-name">Develop</div>
+          </div>
+          <div class="timeline-node"></div>
+        </div>
+
+        <!-- Step 4: Deploy (Right) -->
+        <div class="timeline-step right reveal-right">
+          <div class="timeline-node"></div>
+          <div class="timeline-card">
+            <div class="timeline-duration">1-2 weeks</div>
+            <div class="timeline-step-name">Deploy</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       6. UNIVERSAL FOOTER
+       ========================================== -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand Info -->
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-link">
+            <img src="images/logo-stackly.webp" alt="STACKLY" class="footer-logo-img" />
+          </a>
+          <p>Velit facilisi senectus velit elementum. Consequat vel arcu feugiat dui eu tempor pretium at porta. Dui pellentesque sagittis scelerisque amet vestibulum commodo quam natoque varius. Semper aliquam elementum posuere lacinia. Egestas dapi...</p>
+          <div class="footer-social">
+            <a href="404.html" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Useful links -->
+        <div class="footer-col">
+          <h4>Useful links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blogs.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="contact.html">F.A.Q</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Services -->
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html">Marketing Strategy</a></li>
+            <li><a href="services.html">Financial management</a></li>
+            <li><a href="services.html">Business Strategy</a></li>
+            <li><a href="services.html">Sales and Marketing</a></li>
+            <li><a href="services.html">Human Resources</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Address, Email, Phone -->
+        <div class="footer-col footer-contact-block">
+          <div class="footer-contact-group">
+            <h5>Address</h5>
+            <p>MMR Complex,<br />Chinna Thirupathi,<br />Salem, TN 636008</p>
+          </div>
+          <div class="footer-contact-group">
+            <h5>Email</h5>
+            <a href="mailto:thestackly@gmail.com">thestackly@gmail.com</a>
+          </div>
+          <div class="footer-contact-group">
+            <h5>Phone</h5>
+            <a href="tel:+917010792745">+91 70107 92745</a>
+          </div>
+        </div>
+
+        <!-- Col 5: Newsletter -->
+        <div class="footer-col footer-newsletter">
+          <h4>Subscribe for our newsletter</h4>
+          <p>Consequat vel arcu feugiat dui eu tempor pretium</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to STACKLY newsletter!');">
+            <input type="email" class="newsletter-input" placeholder="Your email" required />
+            <button type="submit" class="newsletter-btn">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy;Copyright Stackly Business 2026.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script>
+    // Dynamic Category Filtering Logic
+    const categoryButtons = document.querySelectorAll('#category-filter-list .category-nav-item');
+    const blogCards = document.querySelectorAll('.blog-articles-grid .blog-card');
+
+    categoryButtons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        categoryButtons.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+
+        const selectedCat = this.getAttribute('data-cat');
+        blogCards.forEach(card => {
+          if (selectedCat === 'all' || card.getAttribute('data-category') === selectedCat) {
+            card.style.display = 'flex';
+            card.style.animation = 'scaleIn 0.35s ease';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Process Cards Interactive Click Toggle
+    document.querySelectorAll('.process-card').forEach(card => {
+      card.addEventListener('click', function() {
+        document.querySelectorAll('.process-card').forEach(c => c.classList.remove('active-card'));
+        this.classList.add('active-card');
+      });
+    });
+  </script>
+</body>
+</html>

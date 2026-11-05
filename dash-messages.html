@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Messages &amp; Inbox — STACKLY Dashboard</title>
+  <meta name="description" content="Direct communications, consultation threads, client messages, and real-time chat." />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body class="dashboard-body">
+
+  <div class="dash-overlay" id="dash-overlay"></div>
+
+  <!-- SIDEBAR -->
+  <aside class="dash-sidebar" id="dash-sidebar">
+    <div class="sidebar-header">
+      <a href="index.html" class="sidebar-logo">
+        <img src="images/logo-stackly.webp" alt="STACKLY" class="sidebar-logo-img" />
+      </a>
+      <button class="sidebar-collapse-btn" id="sidebar-close" title="Close sidebar">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <nav class="sidebar-nav">
+      <span class="sidebar-section-label">Main</span>
+      <a href="dashboard.html" class="sidebar-link">
+        <i class="fa-solid fa-grid-2"></i>
+        <span>Dashboard</span>
+      </a>
+      <a href="dash-appointments.html" class="sidebar-link">
+        <i class="fa-solid fa-calendar-check"></i>
+        <span>Appointments</span>
+        <span class="sidebar-badge">5</span>
+      </a>
+      <a href="dash-clients.html" class="sidebar-link">
+        <i class="fa-solid fa-users"></i>
+        <span>Clients</span>
+      </a>
+      <a href="dash-projects.html" class="sidebar-link">
+        <i class="fa-solid fa-briefcase"></i>
+        <span>Projects</span>
+        <span class="sidebar-badge sidebar-badge-blue">3</span>
+      </a>
+      <a href="dash-billing.html" class="sidebar-link">
+        <i class="fa-solid fa-file-invoice-dollar"></i>
+        <span>Billing & Invoices</span>
+      </a>
+
+      <span class="sidebar-section-label">Insights</span>
+      <a href="dash-analytics.html" class="sidebar-link">
+        <i class="fa-solid fa-chart-mixed"></i>
+        <span>Analytics</span>
+      </a>
+      <a href="dash-reports.html" class="sidebar-link">
+        <i class="fa-solid fa-clipboard-list"></i>
+        <span>Reports</span>
+      </a>
+
+      <span class="sidebar-section-label">General</span>
+      <a href="dash-messages.html" class="sidebar-link active">
+        <i class="fa-solid fa-envelope"></i>
+        <span>Messages</span>
+        <span class="sidebar-badge">2</span>
+      </a>
+      <a href="dash-settings.html" class="sidebar-link">
+        <i class="fa-solid fa-gear"></i>
+        <span>Settings</span>
+      </a>
+      <a href="404.html" class="sidebar-link">
+        <i class="fa-solid fa-circle-question"></i>
+        <span>Help & Support</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-avatar" id="sidebar-avatar-initials">DU</div>
+      <div class="sidebar-user-info">
+        <div class="sidebar-user-name" id="sidebar-user-name">Demo User</div>
+        <div class="sidebar-user-role" id="sidebar-user-role">User</div>
+      </div>
+      <button class="sidebar-logout-btn" id="btn-logout" title="Logout">
+        <i class="fa-solid fa-right-from-bracket"></i>
+      </button>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="dash-main">
+    <header class="dash-topbar">
+      <div class="topbar-left">
+        <button class="mobile-menu-btn" id="mobile-menu-btn" title="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="topbar-greeting">
+          Communication Hub &amp; Direct Messaging
+        </div>
+      </div>
+
+      <div class="topbar-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search conversations..." id="inbox-search" />
+      </div>
+
+      <div class="topbar-right">
+        <button class="topbar-icon-btn" title="Notifications" onclick="window.location.href='dash-messages.html'">
+          <i class="fa-regular fa-bell"></i>
+          <span class="notif-dot"></span>
+        </button>
+        <button class="topbar-icon-btn" title="Messages" onclick="window.location.href='dash-messages.html'">
+          <i class="fa-regular fa-message"></i>
+        </button>
+        <button class="topbar-icon-btn" title="Settings" onclick="window.location.href='dash-settings.html'">
+          <i class="fa-solid fa-gear"></i>
+        </button>
+      </div>
+    </header>
+
+    <div class="dash-content">
+      <!-- Chat Container Grid -->
+      <div class="chat-main-grid">
+        
+        <!-- Left: Conversations List -->
+        <div class="dash-card" style="padding:0; display:flex; flex-direction:column; overflow:hidden;">
+          <div style="padding:16px 20px; border-bottom:1px solid rgba(255,255,255,0.06); display:flex; align-items:center; justify-content:space-between;">
+            <div style="font-weight:700; font-size:1.1rem; color:#f8fafc;">Conversations (8)</div>
+            <a href="404.html" class="action-btn-sm" title="New Chat"><i class="fa-solid fa-pen-to-square"></i></a>
+          </div>
+
+          <div style="padding:12px 16px; border-bottom:1px solid rgba(255,255,255,0.06);">
+            <div class="filter-search-box" style="min-width:100%;">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" placeholder="Filter chats..." id="convo-search" />
+            </div>
+          </div>
+
+          <!-- Conversations Scroll Area -->
+          <div style="flex:1; overflow-y:auto;" id="convo-list">
+            <!-- Active Conversation -->
+            <div class="convo-item active" style="padding:14px 18px; border-bottom:1px solid rgba(255,255,255,0.04); display:flex; gap:12px; cursor:pointer; background:rgba(37,99,235,0.12); border-left:3px solid #3b82f6;">
+              <div class="appt-avatar" style="background:#2563eb; position:relative;">
+                RS
+                <span style="position:absolute; bottom:0; right:0; width:10px; height:10px; background:#10b981; border-radius:50%; border:2px solid #0f111a;"></span>
+              </div>
+              <div style="flex:1; min-width:0;">
+                <div style="display:flex; justify-content:space-between; margin-bottom:3px;">
+                  <span style="font-weight:600; font-size:0.88rem; color:#f1f5f9;">Rahul Srinivasan</span>
+                  <span style="font-size:0.72rem; color:#64748b;">10:42 AM</span>
+                </div>
+                <p style="font-size:0.78rem; color:#cbd5e1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+                  Sounds perfect! We have reviewed the revised mockups...
+                </p>
+              </div>
+            </div>
+
+            <!-- Conversation 2 -->
+            <div class="convo-item" style="padding:14px 18px; border-bottom:1px solid rgba(255,255,255,0.04); display:flex; gap:12px; cursor:pointer;">
+              <div class="appt-avatar" style="background:#8b5cf6; position:relative;">
+                DM
+                <span style="position:absolute; bottom:0; right:0; width:10px; height:10px; background:#10b981; border-radius:50%; border:2px solid #0f111a;"></span>
+              </div>
+              <div style="flex:1; min-width:0;">
+                <div style="display:flex; justify-content:space-between; margin-bottom:3px;">
+                  <span style="font-weight:600; font-size:0.88rem; color:#f1f5f9;">Deepika Menon</span>
+                  <span style="font-size:0.72rem; color:#64748b;">09:15 AM</span>
+                </div>
+                <p style="font-size:0.78rem; color:#94a3b8; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+                  Can we reschedule today's 11:30 consultation to 2 PM?
+                </p>
+              </div>
+            </div>
+
+            <!-- Conversation 3 -->
+            <div class="convo-item" style="padding:14px 18px; border-bottom:1px solid rgba(255,255,255,0.04); display:flex; gap:12px; cursor:pointer;">
+              <div class="appt-avatar" style="background:#10b981;">AV</div>
+              <div style="flex:1; min-width:0;">
+                <div style="display:flex; justify-content:space-between; margin-bottom:3px;">
+                  <span style="font-weight:600; font-size:0.88rem; color:#f1f5f9;">Arun Vijay</span>
+                  <span style="font-size:0.72rem; color:#64748b;">Yesterday</span>
+                </div>
+                <p style="font-size:0.78rem; color:#94a3b8; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+                  Payment for invoice #INV-2046 has been cleared via UPI.
+                </p>
+              </div>
+            </div>
+
+            <!-- Conversation 4 -->
+            <div class="convo-item" style="padding:14px 18px; border-bottom:1px solid rgba(255,255,255,0.04); display:flex; gap:12px; cursor:pointer;">
+              <div class="appt-avatar" style="background:#f59e0b;">KP</div>
+              <div style="flex:1; min-width:0;">
+                <div style="display:flex; justify-content:space-between; margin-bottom:3px;">
+                  <span style="font-weight:600; font-size:0.88rem; color:#f1f5f9;">Kavitha Prasad</span>
+                  <span style="font-size:0.72rem; color:#64748b;">Nov 2</span>
+                </div>
+                <p style="font-size:0.78rem; color:#94a3b8; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+                  Attached the site blueprint for our Salem branch expansion.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Active Chat Area -->
+        <div class="dash-card" style="padding:0; display:flex; flex-direction:column; overflow:hidden;">
+          <!-- Chat Header -->
+          <div style="padding:16px 24px; border-bottom:1px solid rgba(255,255,255,0.06); display:flex; align-items:center; justify-content:space-between;">
+            <div style="display:flex; align-items:center; gap:12px;">
+              <div class="appt-avatar" style="background:#2563eb; position:relative;">
+                RS
+                <span style="position:absolute; bottom:0; right:0; width:10px; height:10px; background:#10b981; border-radius:50%; border:2px solid #0f111a;"></span>
+              </div>
+              <div>
+                <div style="font-weight:700; font-size:1rem; color:#f8fafc;">Rahul Srinivasan</div>
+                <div style="font-size:0.75rem; color:#10b981;">Online • TechVista Corp</div>
+              </div>
+            </div>
+            <div style="display:flex; gap:8px;">
+              <a href="404.html" class="action-btn-sm" title="Start Call"><i class="fa-solid fa-phone"></i></a>
+              <a href="404.html" class="action-btn-sm" title="Start Video Consultation"><i class="fa-solid fa-video"></i></a>
+              <a href="404.html" class="action-btn-sm" title="More Options"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+            </div>
+          </div>
+
+          <!-- Messages Stream -->
+          <div style="flex:1; overflow-y:auto; padding:24px; display:flex; flex-direction:column; gap:16px;" id="message-stream">
+            <!-- Message 1 (Incoming) -->
+            <div style="display:flex; gap:10px; max-width:70%;">
+              <div class="appt-avatar" style="background:#2563eb; width:28px; height:28px; font-size:0.7rem; flex-shrink:0;">RS</div>
+              <div>
+                <div style="background:#161927; border:1px solid rgba(255,255,255,0.06); border-radius:14px; border-top-left-radius:2px; padding:12px 16px; font-size:0.86rem; color:#e2e8f0; line-height:1.5;">
+                  Hi Dr. Sarah &amp; STACKLY team! We've received the comprehensive brand audit report. The competitor contrast metrics were super insightful.
+                </div>
+                <span style="font-size:0.68rem; color:#64748b; margin-top:4px; display:block;">10:35 AM</span>
+              </div>
+            </div>
+
+            <!-- Message 2 (Outgoing) -->
+            <div style="display:flex; gap:10px; max-width:70%; align-self:flex-end; flex-direction:row-reverse;">
+              <div>
+                <div style="background:#2563eb; border-radius:14px; border-top-right-radius:2px; padding:12px 16px; font-size:0.86rem; color:#ffffff; line-height:1.5;">
+                  Glad you found it helpful, Rahul! Our team has also calibrated the typography tokens and responsive mobile layout for your review today.
+                </div>
+                <span style="font-size:0.68rem; color:#64748b; margin-top:4px; display:block; text-align:right;">10:38 AM • Sent</span>
+              </div>
+            </div>
+
+            <!-- Message 3 (Incoming) -->
+            <div style="display:flex; gap:10px; max-width:70%;">
+              <div class="appt-avatar" style="background:#2563eb; width:28px; height:28px; font-size:0.7rem; flex-shrink:0;">RS</div>
+              <div>
+                <div style="background:#161927; border:1px solid rgba(255,255,255,0.06); border-radius:14px; border-top-left-radius:2px; padding:12px 16px; font-size:0.86rem; color:#e2e8f0; line-height:1.5;">
+                  Sounds perfect! We have reviewed the revised mockups and our board approved the final sprint deployment for next week!
+                </div>
+                <span style="font-size:0.68rem; color:#64748b; margin-top:4px; display:block;">10:42 AM</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chat Input Bar -->
+          <div style="padding:16px 20px; border-top:1px solid rgba(255,255,255,0.06); background:#0f111a;">
+            <form id="chat-form" style="display:flex; gap:10px; align-items:center;" onsubmit="handleSendMessage(event)">
+              <a href="404.html" class="action-btn-sm" title="Attach Document / X-Ray / File"><i class="fa-solid fa-paperclip"></i></a>
+              <input 
+                type="text" 
+                id="chat-input"
+                placeholder="Type your message here..." 
+                style="flex:1; background:#161927; border:1px solid #1e2235; border-radius:10px; padding:12px 16px; color:#ffffff; font-size:0.88rem; outline:none;" 
+                required 
+              />
+              <button type="submit" class="btn-dash-primary" style="padding:11px 20px;">
+                <span>Send</span> <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <script src="js/dashUtils.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      dashInit('dash-messages.html');
+
+      // Conversation filter
+      const convoSearch = document.getElementById('convo-search');
+      const convoItems = document.querySelectorAll('#convo-list .convo-item');
+
+      if (convoSearch) {
+        convoSearch.addEventListener('input', (e) => {
+          const val = e.target.value.toLowerCase();
+          convoItems.forEach(item => {
+            const text = item.textContent.toLowerCase();
+            item.style.display = text.includes(val) ? 'flex' : 'none';
+          });
+        });
+      }
+    });
+
+    // Send Message Handler
+    function handleSendMessage(e) {
+      e.preventDefault();
+      const input = document.getElementById('chat-input');
+      const stream = document.getElementById('message-stream');
+      const text = input.value.trim();
+      if (!text) return;
+
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+      const msgDiv = document.createElement('div');
+      msgDiv.style.cssText = 'display:flex; gap:10px; max-width:70%; align-self:flex-end; flex-direction:row-reverse;';
+      msgDiv.innerHTML = `
+        <div>
+          <div style="background:#2563eb; border-radius:14px; border-top-right-radius:2px; padding:12px 16px; font-size:0.86rem; color:#ffffff; line-height:1.5;">
+            ${text.replace(/</g, "&lt;").replace(/>/g, "&gt;")}
+          </div>
+          <span style="font-size:0.68rem; color:#64748b; margin-top:4px; display:block; text-align:right;">${timeStr} • Sent</span>
+        </div>
+      `;
+
+      stream.appendChild(msgDiv);
+      input.value = '';
+      stream.scrollTop = stream.scrollHeight;
+    }
+  </script>
+</body>
+</html>
+

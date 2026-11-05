@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Billing &amp; Invoices — STACKLY Dashboard</title>
+  <meta name="description" content="Manage invoices, payments, payment methods, transaction receipts, and insurance." />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body class="dashboard-body">
+
+  <div class="dash-overlay" id="dash-overlay"></div>
+
+  <!-- SIDEBAR -->
+  <aside class="dash-sidebar" id="dash-sidebar">
+    <div class="sidebar-header">
+      <a href="index.html" class="sidebar-logo">
+        <img src="images/logo-stackly.webp" alt="STACKLY" class="sidebar-logo-img" />
+      </a>
+      <button class="sidebar-collapse-btn" id="sidebar-close" title="Close sidebar">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <nav class="sidebar-nav">
+      <span class="sidebar-section-label">Main</span>
+      <a href="dashboard.html" class="sidebar-link">
+        <i class="fa-solid fa-grid-2"></i>
+        <span>Dashboard</span>
+      </a>
+      <a href="dash-appointments.html" class="sidebar-link">
+        <i class="fa-solid fa-calendar-check"></i>
+        <span>Appointments</span>
+        <span class="sidebar-badge">5</span>
+      </a>
+      <a href="dash-clients.html" class="sidebar-link">
+        <i class="fa-solid fa-users"></i>
+        <span>Clients</span>
+      </a>
+      <a href="dash-projects.html" class="sidebar-link">
+        <i class="fa-solid fa-briefcase"></i>
+        <span>Projects</span>
+        <span class="sidebar-badge sidebar-badge-blue">3</span>
+      </a>
+      <a href="dash-billing.html" class="sidebar-link active">
+        <i class="fa-solid fa-file-invoice-dollar"></i>
+        <span>Billing & Invoices</span>
+      </a>
+
+      <span class="sidebar-section-label">Insights</span>
+      <a href="dash-analytics.html" class="sidebar-link">
+        <i class="fa-solid fa-chart-mixed"></i>
+        <span>Analytics</span>
+      </a>
+      <a href="dash-reports.html" class="sidebar-link">
+        <i class="fa-solid fa-clipboard-list"></i>
+        <span>Reports</span>
+      </a>
+
+      <span class="sidebar-section-label">General</span>
+      <a href="dash-messages.html" class="sidebar-link">
+        <i class="fa-solid fa-envelope"></i>
+        <span>Messages</span>
+        <span class="sidebar-badge">2</span>
+      </a>
+      <a href="dash-settings.html" class="sidebar-link">
+        <i class="fa-solid fa-gear"></i>
+        <span>Settings</span>
+      </a>
+      <a href="404.html" class="sidebar-link">
+        <i class="fa-solid fa-circle-question"></i>
+        <span>Help & Support</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-avatar" id="sidebar-avatar-initials">DU</div>
+      <div class="sidebar-user-info">
+        <div class="sidebar-user-name" id="sidebar-user-name">Demo User</div>
+        <div class="sidebar-user-role" id="sidebar-user-role">User</div>
+      </div>
+      <button class="sidebar-logout-btn" id="btn-logout" title="Logout">
+        <i class="fa-solid fa-right-from-bracket"></i>
+      </button>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="dash-main">
+    <header class="dash-topbar">
+      <div class="topbar-left">
+        <button class="mobile-menu-btn" id="mobile-menu-btn" title="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="topbar-greeting">
+          Billing &amp; Financial Ledger
+        </div>
+      </div>
+
+      <div class="topbar-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search by invoice # or client..." id="billing-search" />
+      </div>
+
+      <div class="topbar-right">
+        <button class="topbar-icon-btn" title="Notifications" onclick="window.location.href='dash-messages.html'">
+          <i class="fa-regular fa-bell"></i>
+          <span class="notif-dot"></span>
+        </button>
+        <button class="topbar-icon-btn" title="Messages" onclick="window.location.href='dash-messages.html'">
+          <i class="fa-regular fa-message"></i>
+        </button>
+        <button class="topbar-icon-btn" title="Settings" onclick="window.location.href='dash-settings.html'">
+          <i class="fa-solid fa-gear"></i>
+        </button>
+      </div>
+    </header>
+
+    <div class="dash-content">
+      <!-- Page Header -->
+      <div class="dash-page-header">
+        <div>
+          <h1 class="dash-page-title">Billing &amp; Revenue Overview</h1>
+          <p class="dash-page-subtitle">Track incoming remittances, pending invoices, tax breakdowns, and payment statuses.</p>
+        </div>
+        <div class="dash-header-actions">
+          <a href="404.html" class="btn-dash-secondary"><i class="fa-solid fa-credit-card"></i> Payment Gateways</a>
+          <a href="404.html" class="btn-dash-primary"><i class="fa-solid fa-plus"></i> Generate Invoice</a>
+        </div>
+      </div>
+
+      <!-- Stats Cards -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <div class="stat-icon-box blue"><i class="fa-solid fa-receipt"></i></div>
+            <span class="stat-trend up">Gross</span>
+          </div>
+          <div class="stat-value">₹34.8L</div>
+          <div class="stat-label">Total Invoiced (YTD)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <div class="stat-icon-box green"><i class="fa-solid fa-circle-dollar-to-slot"></i></div>
+            <span class="stat-trend up">81% Cleared</span>
+          </div>
+          <div class="stat-value">₹28.2L</div>
+          <div class="stat-label">Collected Payments</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <div class="stat-icon-box amber"><i class="fa-solid fa-hourglass-half"></i></div>
+            <span class="stat-trend down">7 pending</span>
+          </div>
+          <div class="stat-value">₹5.6L</div>
+          <div class="stat-label">Pending Approval</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <div class="stat-icon-box purple" style="background:rgba(239,68,68,0.15); color:#f87171;"><i class="fa-solid fa-triangle-exclamation"></i></div>
+            <span class="stat-trend down" style="background:rgba(239,68,68,0.15); color:#f87171;">Due Now</span>
+          </div>
+          <div class="stat-value" style="color:#f87171;">₹1.0L</div>
+          <div class="stat-label">Overdue Remittances</div>
+        </div>
+      </div>
+
+      <!-- Filter Bar -->
+      <div class="dash-filter-bar">
+        <div class="filter-group-left">
+          <div class="dash-tab-pills" id="billing-filters">
+            <button class="dash-tab-pill active" data-status="all">All Invoices (38)</button>
+            <button class="dash-tab-pill" data-status="paid">Paid (28)</button>
+            <button class="dash-tab-pill" data-status="pending">Pending (7)</button>
+            <button class="dash-tab-pill" data-status="overdue">Overdue (3)</button>
+          </div>
+          <select class="filter-select" onchange="window.location.href='404.html'">
+            <option>All Payment Methods</option>
+            <option>UPI / Bank Transfer</option>
+            <option>Credit Card (Stripe)</option>
+            <option>Corporate Wire Transfer</option>
+            <option>Medical Insurance</option>
+          </select>
+        </div>
+        <div class="filter-group-right">
+          <a href="404.html" class="btn-dash-secondary"><i class="fa-solid fa-file-pdf"></i> Batch Export PDF</a>
+        </div>
+      </div>
+
+      <!-- Invoices Table Card -->
+      <div class="dash-card">
+        <div class="appointments-table-wrap">
+          <table class="appointments-table" id="invoices-table">
+            <thead>
+              <tr>
+                <th>Invoice #</th>
+                <th>Client / Organization</th>
+                <th>Billed Service</th>
+                <th>Issue Date</th>
+                <th>Due Date</th>
+                <th>Total Amount</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-status="paid">
+                <td><span style="font-family:monospace; font-weight:700; color:#60a5fa;">#INV-2048</span></td>
+                <td>
+                  <div class="appt-client-cell">
+                    <div class="appt-avatar" style="background:#2563eb;">RS</div>
+                    <div>
+                      <div class="appt-client-name">TechVista Corp</div>
+                      <div class="appt-client-email">GSTIN: 33AAAAA0000A1Z5</div>
+                    </div>
+                  </div>
+                </td>
+                <td>Brand Identity &amp; System</td>
+                <td>Nov 1, 2026</td>
+                <td>Nov 15, 2026</td>
+                <td><span style="font-weight:700; color:#f1f5f9;">₹1,75,000</span></td>
+                <td><span class="status-tag confirmed"><span class="status-dot green"></span> Paid</span></td>
+                <td>
+                  <a href="404.html" class="action-btn-sm" title="Download Receipt"><i class="fa-solid fa-download"></i></a>
+                </td>
+              </tr>
+              <tr data-status="pending">
+                <td><span style="font-family:monospace; font-weight:700; color:#60a5fa;">#INV-2047</span></td>
+                <td>
+                  <div class="appt-client-cell">
+                    <div class="appt-avatar" style="background:#8b5cf6;">DM</div>
+                    <div>
+                      <div class="appt-client-name">StartupGen Labs</div>
+                      <div class="appt-client-email">GSTIN: 29BBBBB1111B2Z6</div>
+                    </div>
+                  </div>
+                </td>
+                <td>UI/UX Sprint Milestone 1</td>
+                <td>Nov 3, 2026</td>
+                <td>Nov 17, 2026</td>
+                <td><span style="font-weight:700; color:#f1f5f9;">₹90,000</span></td>
+                <td><span class="status-tag pending"><span class="status-dot amber"></span> Pending</span></td>
+                <td>
+                  <a href="404.html" class="action-btn-sm" title="Send Reminder"><i class="fa-regular fa-paper-plane"></i></a>
+                </td>
+              </tr>
+              <tr data-status="paid">
+                <td><span style="font-family:monospace; font-weight:700; color:#60a5fa;">#INV-2046</span></td>
+                <td>
+                  <div class="appt-client-cell">
+                    <div class="appt-avatar" style="background:#10b981;">AV</div>
+                    <div>
+                      <div class="appt-client-name">GreenLabs Diagnostics</div>
+                      <div class="appt-client-email">GSTIN: 33CCCCC2222C3Z7</div>
+                    </div>
+                  </div>
+                </td>
+                <td>Monthly Retainer (Nov)</td>
+                <td>Oct 28, 2026</td>
+                <td>Nov 05, 2026</td>
+                <td><span style="font-weight:700; color:#f1f5f9;">₹2,00,000</span></td>
+                <td><span class="status-tag confirmed"><span class="status-dot green"></span> Paid</span></td>
+                <td>
+                  <a href="404.html" class="action-btn-sm" title="Download Receipt"><i class="fa-solid fa-download"></i></a>
+                </td>
+              </tr>
+              <tr data-status="overdue">
+                <td><span style="font-family:monospace; font-weight:700; color:#f87171;">#INV-2045</span></td>
+                <td>
+                  <div class="appt-client-cell">
+                    <div class="appt-avatar" style="background:#ef4444;">KP</div>
+                    <div>
+                      <div class="appt-client-name">BuildNext Infra</div>
+                      <div class="appt-client-email">GSTIN: 33DDDDD3333D4Z8</div>
+                    </div>
+                  </div>
+                </td>
+                <td>PropTech Architecture Phase 1</td>
+                <td>Oct 10, 2026</td>
+                <td>Oct 25, 2026</td>
+                <td><span style="font-weight:700; color:#f87171;">₹1,05,000</span></td>
+                <td><span class="status-tag cancelled"><span class="status-dot red"></span> Overdue</span></td>
+                <td>
+                  <a href="404.html" class="action-btn-sm" title="Demand Notice"><i class="fa-solid fa-bell"></i></a>
+                </td>
+              </tr>
+              <tr data-status="paid">
+                <td><span style="font-family:monospace; font-weight:700; color:#60a5fa;">#INV-2044</span></td>
+                <td>
+                  <div class="appt-client-cell">
+                    <div class="appt-avatar" style="background:#06b6d4;">NR</div>
+                    <div>
+                      <div class="appt-client-name">CloudSphere Global</div>
+                      <div class="appt-client-email">GSTIN: 33EEEEE4444E5Z9</div>
+                    </div>
+                  </div>
+                </td>
+                <td>SEO Strategy &amp; Growth</td>
+                <td>Oct 15, 2026</td>
+                <td>Oct 30, 2026</td>
+                <td><span style="font-weight:700; color:#f1f5f9;">₹1,50,000</span></td>
+                <td><span class="status-tag confirmed"><span class="status-dot green"></span> Paid</span></td>
+                <td>
+                  <a href="404.html" class="action-btn-sm" title="Download Receipt"><i class="fa-solid fa-download"></i></a>
+                </td>
+              </tr>
+              <tr data-status="pending">
+                <td><span style="font-family:monospace; font-weight:700; color:#60a5fa;">#INV-2043</span></td>
+                <td>
+                  <div class="appt-client-cell">
+                    <div class="appt-avatar" style="background:#a855f7;">NK</div>
+                    <div>
+                      <div class="appt-client-name">MediCare Foundation</div>
+                      <div class="appt-client-email">GSTIN: 33FFFFF5555F6Z0</div>
+                    </div>
+                  </div>
+                </td>
+                <td>Patient Portal UI Maintenance</td>
+                <td>Nov 2, 2026</td>
+                <td>Nov 16, 2026</td>
+                <td><span style="font-weight:700; color:#f1f5f9;">₹85,000</span></td>
+                <td><span class="status-tag pending"><span class="status-dot amber"></span> Pending</span></td>
+                <td>
+                  <a href="404.html" class="action-btn-sm" title="Send Reminder"><i class="fa-regular fa-paper-plane"></i></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="dash-pagination">
+          <span>Showing 1 to 6 of 38 invoices</span>
+          <div class="pagination-controls">
+            <a href="404.html" class="page-btn"><i class="fa-solid fa-chevron-left"></i></a>
+            <a href="dash-billing.html" class="page-btn active">1</a>
+            <a href="404.html" class="page-btn">2</a>
+            <a href="404.html" class="page-btn"><i class="fa-solid fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="js/dashUtils.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      dashInit('dash-billing.html');
+
+      // Filter tabs
+      const filterPills = document.querySelectorAll('#billing-filters .dash-tab-pill');
+      const tableRows = document.querySelectorAll('#invoices-table tbody tr');
+
+      filterPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          filterPills.forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+          const status = pill.getAttribute('data-status');
+
+          tableRows.forEach(row => {
+            if (status === 'all' || row.getAttribute('data-status') === status) {
+              row.style.display = '';
+            } else {
+              row.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Quick Search
+      const searchInput = document.getElementById('billing-search');
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          const val = e.target.value.toLowerCase();
+          tableRows.forEach(row => {
+            const text = row.textContent.toLowerCase();
+            row.style.display = text.includes(val) ? '' : 'none';
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>
+

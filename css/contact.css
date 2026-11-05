@@ -1,0 +1,668 @@
+/* ============================================
+   STACKLY — Contact Page Styles
+   ============================================ */
+
+body.contact-body {
+  background-color: #000000;
+}
+
+/* ============================================
+   1. HERO SECTION
+   ============================================ */
+.contact-hero {
+  padding: 130px 0 50px;
+  background-color: #000000;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-hero::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.contact-hero::after {
+  content: '';
+  position: absolute;
+  top: 20%;
+  right: 5%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.07) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.contact-hero-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 50px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Hero Dark Card with Abstract Wireframe Lines */
+.contact-hero-card {
+  position: relative;
+  background: #111215;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 56px 48px;
+  overflow: hidden;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+}
+
+/* Subtle Circuit / Wireframe Lines Graphic in Background */
+.contact-hero-wireframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.35;
+}
+
+.contact-hero-card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-hero-title {
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: var(--text-white);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  margin-bottom: 20px;
+}
+
+.contact-hero-desc {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #9ca3af;
+  margin-bottom: 32px;
+  max-width: 440px;
+}
+
+.contact-hero-btn {
+  display: inline-block;
+  background: #1d77ff;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 13px 30px;
+  border-radius: 10px;
+  transition: var(--transition);
+  box-shadow: 0 4px 16px rgba(29, 119, 255, 0.3);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.contact-hero-btn:hover {
+  background: #1562d6;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(29, 119, 255, 0.5);
+  color: #ffffff;
+}
+
+/* Hero Visual: 3D Speech Bubbles Graphic */
+.contact-hero-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.contact-bubble-container {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: floatBubble 5s ease-in-out infinite alternate;
+}
+
+@keyframes floatBubble {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-14px) rotate(1.5deg);
+  }
+}
+
+.contact-bubble-img {
+  width: 100%;
+  height: auto;
+  max-height: 340px;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.6));
+}
+
+/* SVG 3D Fallback / High-Fidelity Vector Bubbles */
+.speech-bubble-art {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  filter: drop-shadow(0 24px 40px rgba(0, 0, 0, 0.65));
+}
+
+/* ============================================
+   2. MAIN SECTION: FORM & CONTACT INFO
+   ============================================ */
+.contact-main-section {
+  padding: 40px 0 70px;
+  background-color: #000000;
+}
+
+.contact-layout-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* Left: Form Area */
+.contact-form-wrapper {
+  position: relative;
+}
+
+.contact-section-heading {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-white);
+  letter-spacing: -0.015em;
+  margin-bottom: 24px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-row-two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.contact-input,
+.contact-textarea {
+  width: 100%;
+  background: #141417;
+  border: 1px solid #232328;
+  border-radius: 8px;
+  padding: 14px 18px;
+  font-size: 0.95rem;
+  color: #ffffff;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.contact-input::placeholder,
+.contact-textarea::placeholder {
+  color: #6b7280;
+  font-size: 0.92rem;
+}
+
+.contact-input:focus,
+.contact-textarea:focus {
+  background: #17181c;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.22);
+}
+
+/* Phone input with country flag selector */
+.phone-field-group {
+  display: flex;
+  align-items: center;
+  background: #141417;
+  border: 1px solid #232328;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.phone-field-group:focus-within {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.22);
+  background: #17181c;
+}
+
+.phone-flag-selector {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 14px;
+  height: 48px;
+  background: #18191e;
+  border-right: 1px solid #232328;
+  cursor: pointer;
+  user-select: none;
+  color: #cbd5e1;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  flex-shrink: 0;
+}
+
+.phone-flag-selector:hover {
+  background: #202229;
+}
+
+.flag-icon {
+  width: 20px;
+  height: 14px;
+  border-radius: 2px;
+  display: inline-block;
+  object-fit: cover;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.phone-code {
+  color: #94a3b8;
+  font-size: 0.88rem;
+}
+
+.phone-chevron {
+  font-size: 0.68rem;
+  color: #64748b;
+  margin-left: 2px;
+  transition: transform 0.2s ease;
+}
+
+.phone-field-group input[type="tel"] {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 14px 16px;
+  font-size: 0.95rem;
+  color: #ffffff;
+  outline: none;
+  font-family: inherit;
+}
+
+.phone-field-group input[type="tel"]::placeholder {
+  color: #6b7280;
+  font-size: 0.92rem;
+}
+
+.contact-textarea {
+  min-height: 125px;
+  resize: vertical;
+}
+
+.btn-form-submit {
+  width: 100%;
+  background: #1d77ff;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 14px 20px;
+  font-size: 0.98rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: var(--transition);
+  box-shadow: 0 4px 16px rgba(29, 119, 255, 0.3);
+  margin-top: 4px;
+}
+
+.btn-form-submit:hover {
+  background: #1562d6;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(29, 119, 255, 0.5);
+}
+
+.btn-form-submit i {
+  font-size: 0.95rem;
+  transform: rotate(0deg);
+}
+
+/* Form success message */
+.form-success-banner {
+  display: none;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #34d399;
+  border-radius: 8px;
+  padding: 14px 18px;
+  font-size: 0.92rem;
+  margin-top: 12px;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Right: Contact Information */
+.contact-info-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.contact-item-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.contact-item-icon-box {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(29, 119, 255, 0.08);
+  border: 1px solid rgba(29, 119, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3b82f6;
+  font-size: 1.05rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: var(--transition);
+}
+
+.contact-item-row:hover .contact-item-icon-box {
+  background: rgba(29, 119, 255, 0.18);
+  border-color: #3b82f6;
+  transform: scale(1.05);
+}
+
+.contact-item-content {
+  flex: 1;
+}
+
+.contact-item-label {
+  display: block;
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.contact-item-value {
+  font-size: 0.92rem;
+  color: #9ca3af;
+  line-height: 1.55;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contact-item-value a {
+  color: #9ca3af;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contact-item-value a:hover {
+  color: #3b82f6;
+}
+
+.branch-badge {
+  display: inline-block;
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 4px;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+/* Consultation Card */
+.consultation-cta-card {
+  background: #14151a;
+  border: 1px solid #23242c;
+  border-radius: 20px;
+  padding: 32px 28px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  position: relative;
+  overflow: hidden;
+}
+
+.consultation-cta-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(29, 119, 255, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.consultation-cta-card h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.consultation-cta-card p {
+  font-size: 0.88rem;
+  color: #9ca3af;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.btn-book-meeting {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: #1d77ff;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 13px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: var(--transition);
+  box-shadow: 0 4px 14px rgba(29, 119, 255, 0.3);
+  border: none;
+  cursor: pointer;
+}
+
+.btn-book-meeting:hover {
+  background: #1562d6;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(29, 119, 255, 0.5);
+  color: #ffffff;
+}
+
+/* ============================================
+   3. PINNED MAP SECTION (Salem Branch)
+   ============================================ */
+.contact-map-section {
+  padding: 20px 0 80px;
+  background-color: #000000;
+}
+
+.map-container-outer {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+  background: #14151c;
+}
+
+.map-iframe-holder {
+  width: 100%;
+  height: 440px;
+  position: relative;
+}
+
+.map-iframe-holder iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: contrast(105%) brightness(95%);
+  display: block;
+}
+
+/* Floating Branch Location Pin Overlay Badge */
+.map-location-badge {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  background: rgba(17, 18, 23, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  max-width: 420px;
+  z-index: 5;
+}
+
+.map-badge-pin-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #1d77ff;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(29, 119, 255, 0.4);
+}
+
+.map-badge-info h5 {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 3px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.map-badge-info p {
+  font-size: 0.82rem;
+  color: #94a3b8;
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+.map-badge-directions-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #3b82f6;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.map-badge-directions-link:hover {
+  color: #60a5fa;
+  text-decoration: underline;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 1024px) {
+  .contact-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .contact-hero-card {
+    padding: 44px 36px;
+  }
+
+  .contact-hero-visual {
+    order: -1;
+  }
+
+  .contact-layout-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .map-iframe-holder {
+    height: 380px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-hero {
+    padding: 110px 0 40px;
+  }
+
+  .contact-hero-title {
+    font-size: 2.4rem;
+  }
+
+  .contact-hero-card {
+    padding: 36px 24px;
+  }
+
+  .form-row-two {
+    grid-template-columns: 1fr;
+  }
+
+  .map-location-badge {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    margin: 16px;
+    max-width: none;
+  }
+
+  .map-iframe-holder {
+    height: 320px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-hero-title {
+    font-size: 2rem;
+  }
+
+  .contact-hero-desc {
+    font-size: 0.95rem;
+  }
+
+  .contact-section-heading {
+    font-size: 1.35rem;
+  }
+
+  .consultation-cta-card {
+    padding: 24px 20px;
+  }
+}

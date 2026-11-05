@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found — STACKLY</title>
+  <meta name="description" content="The page you're looking for doesn't exist. Head back to STACKLY homepage." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0a0a0f;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Animated background shapes */
+    .bg-shape {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(80px);
+      opacity: 0.15;
+      z-index: 0;
+    }
+
+    .shape-1 {
+      width: 400px;
+      height: 400px;
+      background: #2563eb;
+      top: -10%;
+      left: -5%;
+      animation: floatShape 8s ease-in-out infinite;
+    }
+
+    .shape-2 {
+      width: 300px;
+      height: 300px;
+      background: #7c3aed;
+      bottom: -5%;
+      right: -5%;
+      animation: floatShape 10s ease-in-out 2s infinite reverse;
+    }
+
+    .shape-3 {
+      width: 200px;
+      height: 200px;
+      background: #06b6d4;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: floatShape 6s ease-in-out 1s infinite;
+    }
+
+    @keyframes floatShape {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-30px) scale(1.1); }
+    }
+
+    .error-container {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      padding: 40px 20px;
+    }
+
+    .error-code {
+      font-size: 10rem;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -8px;
+      background: linear-gradient(135deg, #2563eb, #7c3aed, #06b6d4);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradientShift 4s ease infinite;
+      margin-bottom: 20px;
+      user-select: none;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    h1 .highlight {
+      color: #2563eb;
+    }
+
+    .desc {
+      font-size: 1rem;
+      color: #8b8b9a;
+      line-height: 1.6;
+      margin-bottom: 40px;
+      max-width: 450px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #2563eb;
+      color: #ffffff;
+      padding: 14px 32px;
+      border-radius: 9999px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-home::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .btn-home:hover {
+      background: #1d4ed8;
+      transform: translateY(-3px);
+      box-shadow: 0 0 30px rgba(37, 99, 235, 0.3);
+    }
+
+    .btn-home:hover::before {
+      left: 100%;
+    }
+
+    .bottom-links {
+      margin-top: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .bottom-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #8b8b9a;
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: all 0.3s ease;
+    }
+
+    .bottom-link i {
+      color: #2563eb;
+      font-size: 0.9rem;
+    }
+
+    .bottom-link .hl {
+      color: #2563eb;
+      font-weight: 500;
+    }
+
+    .bottom-link:hover .hl {
+      text-decoration: underline;
+    }
+
+    /* Floating particles */
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(37, 99, 235, 0.4);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: particleFade 3s ease-in-out infinite;
+    }
+
+    @keyframes particleFade {
+      0%, 100% { opacity: 0; transform: translateY(0); }
+      50% { opacity: 1; transform: translateY(-40px); }
+    }
+
+    @media (max-width: 600px) {
+      .error-code { font-size: 6rem; letter-spacing: -4px; }
+      h1 { font-size: 1.4rem; }
+      .desc { font-size: 0.9rem; }
+      .bottom-links { flex-direction: column; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-shape shape-1"></div>
+  <div class="bg-shape shape-2"></div>
+  <div class="bg-shape shape-3"></div>
+
+  <div class="error-container">
+    <div style="margin-bottom: 24px;">
+      <a href="index.html">
+        <img src="images/logo-stackly.webp" alt="STACKLY" style="height: 36px; width: auto; filter: brightness(0) invert(1); transition: opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'" />
+      </a>
+    </div>
+    <div class="error-code">404</div>
+    <h1><span class="highlight">Oops!</span> Page Not Found</h1>
+    <p class="desc">The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+    
+    <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+      <a href="dashboard.html" class="btn-home">
+        <i class="fa-solid fa-chart-line"></i> Return to Dashboard
+      </a>
+      <a href="index.html" class="btn-home" style="background:#161927; border:1px solid rgba(255,255,255,0.15);">
+        <i class="fa-solid fa-house"></i> Home
+      </a>
+    </div>
+
+    <div class="bottom-links">
+      <a href="index.html" class="bottom-link">
+        <i class="fa-regular fa-lightbulb"></i> Explore our <span class="hl">services</span>
+      </a>
+      <a href="index.html#work" class="bottom-link">
+        <i class="fa-regular fa-folder-open"></i> View our <span class="hl">portfolio</span>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // Generate floating particles
+    const body = document.body;
+    for (let i = 0; i < 20; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.top = Math.random() * 100 + '%';
+      particle.style.animationDelay = Math.random() * 3 + 's';
+      particle.style.animationDuration = (2 + Math.random() * 3) + 's';
+      particle.style.width = (2 + Math.random() * 4) + 'px';
+      particle.style.height = particle.style.width;
+      body.appendChild(particle);
+    }
+  </script>
+</body>
+</html>
