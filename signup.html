@@ -51,7 +51,7 @@
             <span class="auth-notch-label">Name</span>
             <div class="auth-input-box">
               <span class="auth-input-icon">
-                <i class="fa-regular fa-envelope"></i>
+                <i class="fa-regular fa-user"></i>
               </span>
               <input 
                 type="text" 
@@ -59,6 +59,8 @@
                 id="signup-name" 
                 placeholder="Enter your name" 
                 autocomplete="name"
+                pattern="[A-Za-z\s]+"
+                title="Name should only contain letters"
                 required 
               />
             </div>

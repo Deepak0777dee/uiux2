@@ -101,6 +101,11 @@ function isValidEmail(email) {
   return re.test(String(email).toLowerCase());
 }
 
+function isValidName(name) {
+  const re = /^[A-Za-z\s]+$/;
+  return re.test(String(name).trim());
+}
+
 function setFieldError(inputId, errorId, message) {
   const input = document.getElementById(inputId);
   const errorEl = document.getElementById(errorId);
@@ -262,8 +267,48 @@ function initSignUpPage() {
   const form = document.getElementById('signup-form');
   if (!form) return;
 
+  const nameInput = document.getElementById('signup-name');
+  const emailInput = document.getElementById('signup-email');
+  const passwordInput = document.getElementById('signup-password');
+  const confirmInput = document.getElementById('signup-confirm-password');
+  const roleInput = document.getElementById('selected-role');
+  const submitBtn = document.getElementById('btn-signup-submit');
+
+  function validateName() {
+    if (!nameInput) return true;
+    const name = nameInput.value.trim();
+    if (!name) {
+      setFieldError('signup-name', 'signup-name-error', 'Full name is required');
+      return false;
+    } else if (name.length < 2) {
+      setFieldError('signup-name', 'signup-name-error', 'Name must be at least 2 characters');
+      return false;
+    } else if (!isValidName(name)) {
+      setFieldError('signup-name', 'signup-name-error', 'Name should only contain letters');
+      return false;
+    }
+    clearFieldError('signup-name', 'signup-name-error');
+    return true;
+  }
+
+  // Real-time Name validation on blur and input
+  if (nameInput) {
+    nameInput.addEventListener('input', () => {
+      hideAlert('signup-alert');
+      const errEl = document.getElementById('signup-name-error');
+      if (errEl && errEl.classList.contains('active')) {
+        validateName();
+      } else if (nameInput.value && /[^A-Za-z\s]/.test(nameInput.value)) {
+        setFieldError('signup-name', 'signup-name-error', 'Name should only contain letters');
+      } else {
+        clearFieldError('signup-name', 'signup-name-error');
+      }
+    });
+    nameInput.addEventListener('blur', validateName);
+  }
+
   // Clear errors on input
-  ['signup-name', 'signup-email', 'signup-password', 'signup-confirm-password'].forEach(id => {
+  ['signup-email', 'signup-password', 'signup-confirm-password'].forEach(id => {
     const el = document.getElementById(id);
     if (el) {
       el.addEventListener('input', () => {
@@ -277,13 +322,6 @@ function initSignUpPage() {
     e.preventDefault();
     hideAlert('signup-alert');
 
-    const nameInput = document.getElementById('signup-name');
-    const emailInput = document.getElementById('signup-email');
-    const passwordInput = document.getElementById('signup-password');
-    const confirmInput = document.getElementById('signup-confirm-password');
-    const roleInput = document.getElementById('selected-role');
-    const submitBtn = document.getElementById('btn-signup-submit');
-
     const name = nameInput ? nameInput.value.trim() : '';
     const email = emailInput ? emailInput.value.trim() : '';
     const password = passwordInput ? passwordInput.value : '';
@@ -293,14 +331,8 @@ function initSignUpPage() {
     let hasError = false;
 
     // Validate Name
-    if (!name) {
-      setFieldError('signup-name', 'signup-name-error', 'Full name is required');
+    if (!validateName()) {
       hasError = true;
-    } else if (name.length < 2) {
-      setFieldError('signup-name', 'signup-name-error', 'Name must be at least 2 characters');
-      hasError = true;
-    } else {
-      clearFieldError('signup-name', 'signup-name-error');
     }
 
     // Validate Email

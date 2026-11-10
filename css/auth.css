@@ -45,9 +45,11 @@ body.auth-page {
   position: absolute;
   top: 24px;
   left: 32px;
+  right: 32px;
   z-index: 10;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 16px;
 }
 
@@ -90,6 +92,8 @@ body.auth-page {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(8px);
+  margin-left: auto;
+  white-space: nowrap;
   transition: all 0.25s ease;
 }
 
@@ -534,6 +538,12 @@ body.auth-page {
 }
 
 @media (max-width: 480px) {
+  .auth-top-bar {
+    top: 18px;
+    left: 18px;
+    right: 18px;
+  }
+
   .auth-panel-left {
     padding: 80px 18px 30px;
   }
