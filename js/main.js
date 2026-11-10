@@ -261,32 +261,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
-  // Play Button — Video Simulation
+  // Play Button — Navigate to 404
   // ==========================================
-  const videoTriggers = document.querySelectorAll('.play-button, .trust-video-card');
+  const videoTriggers = document.querySelectorAll('.play-button, #play-video, .trust-video-card, .watch-video-btn');
   videoTriggers.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      // Simple modal-like overlay for the play action
-      const overlay = document.createElement('div');
-      overlay.style.cssText = `
-        position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-        background: rgba(0,0,0,0.9); z-index: 10000;
-        display: flex; align-items: center; justify-content: center;
-        cursor: pointer; animation: fadeIn 0.3s ease;
-      `;
-      overlay.innerHTML = `
-        <div style="text-align: center; color: white;">
-          <i class="fa-solid fa-circle-play" style="font-size: 4.5rem; margin-bottom: 20px; color: var(--primary);"></i>
-          <p style="font-size: 1.25rem; font-weight: 600;">STACKLY Corporate Video</p>
-          <p style="font-size: 0.9rem; color: #888; margin-top: 8px;">Click anywhere to close</p>
-        </div>
-      `;
-      overlay.addEventListener('click', () => {
-        overlay.style.animation = 'fadeOut 0.3s ease';
-        setTimeout(() => overlay.remove(), 300);
-      });
-      document.body.appendChild(overlay);
+      window.location.href = '404.html';
     });
   });
 
