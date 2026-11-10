@@ -19,7 +19,7 @@ body.auth-page {
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
-  background: url('../images/image 1.png') center center / cover no-repeat fixed;
+  background: url('../images/image 1.webp') center center / cover no-repeat fixed;
 }
 
 /* Ambient dark vignette & overlay */

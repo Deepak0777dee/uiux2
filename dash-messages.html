@@ -28,6 +28,18 @@
       </button>
     </div>
 
+    <!-- Mobile User Profile Card (visible on mobile view) -->
+    <div class="mobile-drawer-user">
+      <div class="sidebar-avatar mobile-drawer-avatar" id="mobile-drawer-avatar">DU</div>
+      <div class="mobile-drawer-info">
+        <div class="mobile-drawer-name" id="mobile-drawer-name">Demo User</div>
+        <div class="mobile-drawer-email" id="mobile-drawer-email" title="Logged in email">
+          <i class="fa-regular fa-envelope"></i>
+          <span class="user-email-text">user@stackly.com</span>
+        </div>
+      </div>
+    </div>
+
     <nav class="sidebar-nav">
       <span class="sidebar-section-label">Main</span>
       <a href="dashboard.html" class="sidebar-link">
@@ -77,16 +89,24 @@
         <i class="fa-solid fa-circle-question"></i>
         <span>Help & Support</span>
       </a>
+      <a href="javascript:void(0)" class="sidebar-link sidebar-link-logout" id="sidebar-nav-logout">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <span>Log Out</span>
+      </a>
     </nav>
 
     <div class="sidebar-footer">
       <div class="sidebar-avatar" id="sidebar-avatar-initials">DU</div>
       <div class="sidebar-user-info">
         <div class="sidebar-user-name" id="sidebar-user-name">Demo User</div>
+        <div class="sidebar-user-email" id="sidebar-user-email" title="Logged in email">
+          <span class="user-email-text">user@stackly.com</span>
+        </div>
         <div class="sidebar-user-role" id="sidebar-user-role">User</div>
       </div>
-      <button class="sidebar-logout-btn" id="btn-logout" title="Logout">
+      <button class="sidebar-logout-btn" id="btn-logout" title="Logout" aria-label="Logout">
         <i class="fa-solid fa-right-from-bracket"></i>
+        <span>Logout</span>
       </button>
     </div>
   </aside>
@@ -98,8 +118,14 @@
         <button class="mobile-menu-btn" id="mobile-menu-btn" title="Open menu">
           <i class="fa-solid fa-bars"></i>
         </button>
-        <div class="topbar-greeting">
+        <div class="topbar-text-group">
+          <div class="topbar-greeting">
           Communication Hub &amp; Direct Messaging
+        </div>
+          <div class="topbar-user-email" id="topbar-user-email" title="Logged in as">
+            <i class="fa-regular fa-envelope"></i>
+            <span class="user-email-text">user@stackly.com</span>
+          </div>
         </div>
       </div>
 
@@ -118,6 +144,10 @@
         </button>
         <button class="topbar-icon-btn" title="Settings" onclick="window.location.href='dash-settings.html'">
           <i class="fa-solid fa-gear"></i>
+        </button>
+        <button class="btn-dash-logout" id="topbar-logout-btn" title="Log Out" aria-label="Log Out">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          <span>Logout</span>
         </button>
       </div>
     </header>

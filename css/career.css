@@ -134,8 +134,13 @@
   align-items: center;
   justify-content: center;
   font-size: 0.95rem;
+  text-decoration: none;
   cursor: pointer;
   transition: var(--transition);
+}
+
+.toggle-btn:hover {
+  color: #ffffff;
 }
 
 .toggle-btn.active {

@@ -90,7 +90,7 @@
         <!-- Right: 3D Glossy Speech Bubbles -->
         <div class="contact-hero-visual reveal-right">
           <div class="contact-bubble-container">
-            <img src="images/contact-bubbles.jpg" alt="STACKLY Contact Chat 3D" class="contact-bubble-img" />
+            <img src="images/contact-bubbles.webp" alt="STACKLY Contact Chat 3D" class="contact-bubble-img" />
           </div>
         </div>
 
@@ -109,27 +109,41 @@
         <div class="contact-form-wrapper reveal">
           <h2 class="contact-section-heading">Send Us a Message</h2>
 
-          <form class="contact-form" id="contact-form" onsubmit="handleContactSubmit(event)">
+          <form class="contact-form" id="contact-form" novalidate onsubmit="handleContactSubmit(event)">
             <!-- First Name & Last Name -->
             <div class="form-row-two">
-              <input type="text" class="contact-input" id="first-name" placeholder="First Name" required />
-              <input type="text" class="contact-input" id="last-name" placeholder="Last Name" required />
+              <div class="form-field-group">
+                <input type="text" class="contact-input" id="first-name" placeholder="First Name" />
+                <div class="field-error-msg" id="first-name-error"></div>
+              </div>
+              <div class="form-field-group">
+                <input type="text" class="contact-input" id="last-name" placeholder="Last Name" />
+                <div class="field-error-msg" id="last-name-error"></div>
+              </div>
             </div>
 
             <!-- Email -->
-            <input type="email" class="contact-input" id="email" placeholder="Email" required />
+            <div class="form-field-group">
+              <input type="email" class="contact-input" id="email" placeholder="Email" />
+              <div class="field-error-msg" id="email-error"></div>
+            </div>
 
             <!-- Company -->
-            <input type="text" class="contact-input" id="company" placeholder="Company" />
+            <div class="form-field-group">
+              <input type="text" class="contact-input" id="company" placeholder="Company (Optional)" />
+            </div>
 
             <!-- Phone Number with Country Selector -->
-            <div class="phone-field-group">
-              <div class="phone-flag-selector" id="phone-flag-btn" title="Click to change country code" onclick="toggleCountryDropdown()">
-                <img src="https://flagcdn.com/w40/in.png" alt="India flag" id="current-flag" class="flag-icon" />
-                <span class="phone-code" id="current-code">+91</span>
-                <i class="fa-solid fa-chevron-down phone-chevron" id="country-chevron"></i>
+            <div class="form-field-group">
+              <div class="phone-field-group" id="phone-field-group">
+                <div class="phone-flag-selector" id="phone-flag-btn" title="Click to change country code" onclick="toggleCountryDropdown()">
+                  <img src="https://flagcdn.com/w40/in.png" alt="India flag" id="current-flag" class="flag-icon" />
+                  <span class="phone-code" id="current-code">+91</span>
+                  <i class="fa-solid fa-chevron-down phone-chevron" id="country-chevron"></i>
+                </div>
+                <input type="tel" id="phone" placeholder="Phone Number" />
               </div>
-              <input type="tel" id="phone" placeholder="Phone Number" required />
+              <div class="field-error-msg" id="phone-error"></div>
             </div>
 
             <!-- Custom Country Selector Dropdown -->
@@ -165,7 +179,10 @@
             </div>
 
             <!-- Message Textarea -->
-            <textarea class="contact-textarea" id="message" placeholder="Message" required></textarea>
+            <div class="form-field-group">
+              <textarea class="contact-textarea" id="message" placeholder="Message"></textarea>
+              <div class="field-error-msg" id="message-error"></div>
+            </div>
 
             <!-- Submit Button -->
             <button type="submit" class="btn-form-submit" id="btn-submit-message">
@@ -382,6 +399,9 @@
       document.getElementById('country-picker-dropdown').style.display = 'none';
       document.getElementById('country-chevron').style.transform = 'rotate(0deg)';
       document.getElementById('phone').focus();
+      if (document.getElementById('phone').value.trim()) {
+        validatePhone();
+      }
     }
 
     // Close dropdown on outside click
@@ -395,14 +415,183 @@
       }
     });
 
+    // Form Validation Helpers
+    function setContactError(inputId, errorId, message, isPhoneGroup = false) {
+      const input = document.getElementById(inputId);
+      const errorEl = document.getElementById(errorId);
+      const targetEl = isPhoneGroup ? document.getElementById('phone-field-group') : input;
+      
+      if (targetEl) targetEl.classList.add('input-error');
+      if (errorEl) {
+        errorEl.innerHTML = `<i class="fa-solid fa-circle-exclamation"></i> <span>${message}</span>`;
+        errorEl.classList.add('active');
+      }
+    }
+
+    function clearContactError(inputId, errorId, isPhoneGroup = false) {
+      const input = document.getElementById(inputId);
+      const errorEl = document.getElementById(errorId);
+      const targetEl = isPhoneGroup ? document.getElementById('phone-field-group') : input;
+
+      if (targetEl) targetEl.classList.remove('input-error');
+      if (errorEl) {
+        errorEl.innerHTML = '';
+        errorEl.classList.remove('active');
+      }
+    }
+
+    function validateFirstName() {
+      const el = document.getElementById('first-name');
+      if (!el) return true;
+      const val = el.value.trim();
+      const nameRegex = /^[A-Za-z\s'.-]+$/;
+
+      if (!val) {
+        setContactError('first-name', 'first-name-error', 'First name is required');
+        return false;
+      } else if (val.length < 2) {
+        setContactError('first-name', 'first-name-error', 'First name must be at least 2 characters');
+        return false;
+      } else if (!nameRegex.test(val)) {
+        setContactError('first-name', 'first-name-error', 'First name should only contain letters');
+        return false;
+      }
+      clearContactError('first-name', 'first-name-error');
+      return true;
+    }
+
+    function validateLastName() {
+      const el = document.getElementById('last-name');
+      if (!el) return true;
+      const val = el.value.trim();
+      const nameRegex = /^[A-Za-z\s'.-]+$/;
+
+      if (!val) {
+        setContactError('last-name', 'last-name-error', 'Last name is required');
+        return false;
+      } else if (!nameRegex.test(val)) {
+        setContactError('last-name', 'last-name-error', 'Last name should only contain letters');
+        return false;
+      }
+      clearContactError('last-name', 'last-name-error');
+      return true;
+    }
+
+    function validatePhone() {
+      const el = document.getElementById('phone');
+      if (!el) return true;
+      const rawVal = el.value.trim();
+      const code = document.getElementById('current-code').textContent.trim();
+
+      if (!rawVal) {
+        setContactError('phone', 'phone-error', 'Phone number is required', true);
+        return false;
+      }
+
+      // Strip spaces, dashes, parentheses
+      const cleanDigits = rawVal.replace(/[\s\-\(\)]/g, '');
+
+      // Check if contains non-digit characters
+      if (!/^\d+$/.test(cleanDigits)) {
+        setContactError('phone', 'phone-error', 'Phone number must contain only numbers', true);
+        return false;
+      }
+
+      // Length validation
+      if (code === '+91') {
+        if (cleanDigits.length !== 10) {
+          setContactError('phone', 'phone-error', 'Please enter a valid 10-digit phone number', true);
+          return false;
+        }
+      } else {
+        if (cleanDigits.length < 7 || cleanDigits.length > 15) {
+          setContactError('phone', 'phone-error', 'Please enter a valid phone number (7 to 15 digits)', true);
+          return false;
+        }
+      }
+
+      clearContactError('phone', 'phone-error', true);
+      return true;
+    }
+
+    function validateEmailField() {
+      const el = document.getElementById('email');
+      if (!el) return true;
+      const val = el.value.trim();
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!val) {
+        setContactError('email', 'email-error', 'Email address is required');
+        return false;
+      } else if (!emailRegex.test(val)) {
+        setContactError('email', 'email-error', 'Please enter a valid email address');
+        return false;
+      }
+      clearContactError('email', 'email-error');
+      return true;
+    }
+
+    function validateMessageField() {
+      const el = document.getElementById('message');
+      if (!el) return true;
+      const val = el.value.trim();
+
+      if (!val) {
+        setContactError('message', 'message-error', 'Message is required');
+        return false;
+      } else if (val.length < 5) {
+        setContactError('message', 'message-error', 'Message must be at least 5 characters');
+        return false;
+      }
+      clearContactError('message', 'message-error');
+      return true;
+    }
+
+    // Attach real-time input and blur validation listeners
+    document.getElementById('first-name')?.addEventListener('input', () => {
+      if (document.getElementById('first-name-error').classList.contains('active')) validateFirstName();
+    });
+    document.getElementById('first-name')?.addEventListener('blur', validateFirstName);
+
+    document.getElementById('last-name')?.addEventListener('input', () => {
+      if (document.getElementById('last-name-error').classList.contains('active')) validateLastName();
+    });
+    document.getElementById('last-name')?.addEventListener('blur', validateLastName);
+
+    document.getElementById('phone')?.addEventListener('input', () => {
+      if (document.getElementById('phone-error').classList.contains('active')) validatePhone();
+    });
+    document.getElementById('phone')?.addEventListener('blur', validatePhone);
+
+    document.getElementById('email')?.addEventListener('input', () => {
+      if (document.getElementById('email-error').classList.contains('active')) validateEmailField();
+    });
+    document.getElementById('email')?.addEventListener('blur', validateEmailField);
+
+    document.getElementById('message')?.addEventListener('input', () => {
+      if (document.getElementById('message-error').classList.contains('active')) validateMessageField();
+    });
+    document.getElementById('message')?.addEventListener('blur', validateMessageField);
+
     // Handle Contact Form Submission
     function handleContactSubmit(e) {
       e.preventDefault();
-      const firstName = document.getElementById('first-name').value;
-      const lastName = document.getElementById('last-name').value;
-      const email = document.getElementById('email').value;
-      const code = document.getElementById('current-code').textContent;
-      const phone = document.getElementById('phone').value;
+
+      const isFirstValid = validateFirstName();
+      const isLastValid = validateLastName();
+      const isEmailValid = validateEmailField();
+      const isPhoneValid = validatePhone();
+      const isMsgValid = validateMessageField();
+
+      if (!isFirstValid || !isLastValid || !isEmailValid || !isPhoneValid || !isMsgValid) {
+        if (!isFirstValid) document.getElementById('first-name').focus();
+        else if (!isLastValid) document.getElementById('last-name').focus();
+        else if (!isEmailValid) document.getElementById('email').focus();
+        else if (!isPhoneValid) document.getElementById('phone').focus();
+        else if (!isMsgValid) document.getElementById('message').focus();
+        return;
+      }
+
       const banner = document.getElementById('form-success-banner');
       const submitBtn = document.getElementById('btn-submit-message');
 
@@ -416,6 +605,12 @@
         banner.style.display = 'flex';
         document.getElementById('contact-form').reset();
         
+        clearContactError('first-name', 'first-name-error');
+        clearContactError('last-name', 'last-name-error');
+        clearContactError('email', 'email-error');
+        clearContactError('phone', 'phone-error', true);
+        clearContactError('message', 'message-error');
+
         // Hide success banner after 6 seconds
         setTimeout(() => {
           banner.style.display = 'none';

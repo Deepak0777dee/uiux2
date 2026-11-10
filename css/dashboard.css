@@ -34,16 +34,19 @@ img, svg { max-width: 100%; }
    ============================================ */
 .dash-sidebar {
   width: 260px;
-  min-height: 100vh;
+  height: 100vh;
+  max-height: 100vh;
   background: #0d0f17;
   border-right: 1px solid rgba(255,255,255,0.06);
   display: flex;
   flex-direction: column;
   position: fixed;
   top: 0;
+  bottom: 0;
   left: 0;
   z-index: 100;
   transition: transform 0.3s ease, width 0.3s ease;
+  overflow: hidden;
 }
 
 .sidebar-header {
@@ -182,11 +185,14 @@ img, svg { max-width: 100%; }
 
 /* Sidebar Footer Profile */
 .sidebar-footer {
-  padding: 16px 18px;
-  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 14px 16px;
+  border-top: 1px solid rgba(255,255,255,0.08);
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+  flex-shrink: 0;
+  background: #090a10;
+  margin-top: auto;
 }
 
 .sidebar-avatar {
@@ -217,6 +223,15 @@ img, svg { max-width: 100%; }
   text-overflow: ellipsis;
 }
 
+.sidebar-user-email {
+  font-size: 0.72rem;
+  color: #38bdf8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+}
+
 .sidebar-user-role {
   font-size: 0.72rem;
   color: #64748b;
@@ -224,16 +239,65 @@ img, svg { max-width: 100%; }
 }
 
 .sidebar-logout-btn {
-  background: none;
-  border: none;
-  color: #64748b;
-  font-size: 0.95rem;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.28);
+  color: #f87171;
+  font-size: 0.82rem;
+  font-weight: 600;
+  font-family: inherit;
   cursor: pointer;
-  padding: 6px;
-  border-radius: 6px;
-  transition: all 0.2s;
+  padding: 7px 11px;
+  border-radius: 7px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
 }
-.sidebar-logout-btn:hover { color: #ef4444; background: rgba(239,68,68,0.1); }
+.sidebar-logout-btn:hover {
+  color: #ffffff;
+  background: #ef4444;
+  border-color: #ef4444;
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.4);
+}
+
+/* Dedicated Topbar & Nav Logout Buttons */
+.btn-dash-logout {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #f87171;
+  padding: 7px 13px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-left: 6px;
+  white-space: nowrap;
+}
+.btn-dash-logout:hover {
+  background: #ef4444;
+  color: #ffffff;
+  border-color: #ef4444;
+  box-shadow: 0 2px 12px rgba(239, 68, 68, 0.35);
+  transform: translateY(-1px);
+}
+
+.sidebar-link-logout {
+  color: #f87171 !important;
+  margin-top: 6px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.08);
+  padding-top: 10px !important;
+  cursor: pointer;
+}
+.sidebar-link-logout:hover {
+  background: rgba(239, 68, 68, 0.15) !important;
+  color: #ffffff !important;
+}
 
 /* ============================================
    2. MAIN CONTENT AREA
@@ -290,19 +354,45 @@ img, svg { max-width: 100%; }
   flex-shrink: 0;
 }
 
+.topbar-text-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
 .topbar-greeting {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 600;
   color: #f1f5f9;
   min-width: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  line-height: 1.25;
 }
 .topbar-greeting span {
   color: #94a3b8;
   font-weight: 400;
   font-size: 0.92rem;
+}
+
+.topbar-user-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.73rem;
+  color: #38bdf8;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 2px;
+}
+.topbar-user-email i {
+  font-size: 0.68rem;
+  opacity: 0.85;
 }
 
 .topbar-search {
@@ -1164,8 +1254,54 @@ img, svg { max-width: 100%; }
   }
 }
 
+/* Mobile Drawer User Card (at top of mobile sidebar drawer) */
+.mobile-drawer-user {
+  display: none;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.mobile-drawer-info {
+  min-width: 0;
+  flex: 1;
+}
+
+.mobile-drawer-name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mobile-drawer-email {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.72rem;
+  color: #38bdf8;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 2px;
+}
+
+.mobile-drawer-email i {
+  font-size: 0.68rem;
+  opacity: 0.85;
+}
+
 /* Tablet & Mobile Breakpoint (Sidebar transforms to drawer) */
 @media (max-width: 900px) {
+  .mobile-drawer-user {
+    display: flex;
+  }
   .dash-sidebar {
     transform: translateX(-100%);
     box-shadow: none;
@@ -1272,10 +1408,15 @@ img, svg { max-width: 100%; }
   }
   .dash-topbar {
     padding: 0 14px;
-    height: 58px;
+    height: 62px;
   }
   .topbar-greeting {
-    font-size: 0.92rem;
+    font-size: 0.9rem;
+    line-height: 1.2;
+  }
+  .topbar-user-email {
+    font-size: 0.7rem;
+    max-width: 155px;
   }
   .dash-card {
     padding: 16px 14px;
@@ -1308,19 +1449,24 @@ img, svg { max-width: 100%; }
     font-size: 0.78rem;
   }
   .topbar-greeting {
-    font-size: 0.85rem;
-    max-width: 160px;
+    font-size: 0.84rem;
+    max-width: 140px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    line-height: 1.2;
+  }
+  .topbar-user-email {
+    font-size: 0.67rem;
+    max-width: 135px;
   }
   .topbar-right {
-    gap: 6px;
+    gap: 4px;
   }
   .topbar-icon-btn {
-    width: 34px;
-    height: 34px;
-    font-size: 0.85rem;
+    width: 32px;
+    height: 32px;
+    font-size: 0.8rem;
   }
   .stat-card {
     padding: 16px 18px;
@@ -1342,6 +1488,14 @@ img, svg { max-width: 100%; }
   #chat-form .btn-dash-primary span {
     display: none;
   }
+  .btn-dash-logout {
+    padding: 7px 9px;
+    font-size: 0.8rem;
+    margin-left: 2px;
+  }
+  .btn-dash-logout span {
+    display: none;
+  }
 }
 
 @media (max-width: 360px) {
@@ -1349,7 +1503,16 @@ img, svg { max-width: 100%; }
     padding: 12px 8px 20px !important;
   }
   .dash-topbar {
-    padding: 0 10px;
+    padding: 0 8px;
+    height: 60px;
+  }
+  .topbar-greeting {
+    font-size: 0.78rem;
+    max-width: 110px;
+  }
+  .topbar-user-email {
+    font-size: 0.62rem;
+    max-width: 105px;
   }
   .quick-actions-grid {
     grid-template-columns: 1fr;

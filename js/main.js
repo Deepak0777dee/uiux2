@@ -263,7 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================
   // Play Button — Video Simulation
   // ==========================================
-  const videoTriggers = document.querySelectorAll('.play-button, .watch-video-btn, .trust-video-card');
+  const videoTriggers = document.querySelectorAll('.play-button, .trust-video-card');
   videoTriggers.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
